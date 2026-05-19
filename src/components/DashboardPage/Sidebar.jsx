@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router';
 
 const navItems = [
   { icon: '🏠', label: 'Home', active: true },
@@ -10,8 +11,8 @@ const navItems = [
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+  const navigate = useNavigate();
   const { user: userData } = useSelector(state => state.auth);
-  console.log(userData)
   const [activeNav, setActiveNav] = useState('Home');
   return (
     <>
@@ -22,7 +23,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
       <aside className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-[#141414] border-r border-gray-100 dark:border-[#2e2e2e] z-30 flex flex-col transition-transform duration-300 lg:translate-x-0 lg:static lg:z-auto ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         {/* Logo */}
         <div className="p-6 border-b border-gray-100 dark:border-[#2e2e2e] flex items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
             <div className="w-9 h-9 bg-[#E23744] rounded-xl flex items-center justify-center">
               <span className="text-white font-black text-sm">Z</span>
             </div>

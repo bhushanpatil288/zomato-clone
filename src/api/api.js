@@ -16,4 +16,4 @@ api.interceptors.request.use((config) => {
 
 export const login = (formData) => api.post('/auth/login', formData);
 
-export const profile = () => axios.get('/auth/me');
+export const me = () => api.get('/auth/me');

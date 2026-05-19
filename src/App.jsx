@@ -6,8 +6,16 @@ import {
 } from './pages';
 
 import Layout from './Layout';
+import { useDispatch } from 'react-redux';
+import { getMe } from './redux/authThunk';
+import { useEffect } from 'react';
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect( () => {
+    dispatch(getMe());
+  }, [dispatch]);
+
   return (
     <BrowserRouter>
       <Routes>
