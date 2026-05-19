@@ -1,7 +1,7 @@
 const OFFERS = [
-  { emoji: "⚡", code: "ZOMATO50", title: "50% off on first order", desc: "Up to ₹100 off · Min order ₹199", color: "from-orange-500 to-red-500", bg: "bg-orange-50 dark:bg-orange-900/10", border: "border-orange-200 dark:border-orange-800/30" },
-  { emoji: "🚀", code: "FREEDEL", title: "Free delivery all week", desc: "On orders above ₹149 · No max cap", color: "from-blue-500 to-cyan-500", bg: "bg-blue-50 dark:bg-blue-900/10", border: "border-blue-200 dark:border-blue-800/30" },
-  { emoji: "🌟", code: "GOLD2025", title: "1 month Gold FREE", desc: "New users only · Unlock member deals", color: "from-yellow-400 to-orange-400", bg: "bg-yellow-50 dark:bg-yellow-900/10", border: "border-yellow-200 dark:border-yellow-800/30" },
+  { emoji: '⚡', code: 'ZOMATO50', title: '50% off on first order', desc: 'Up to ₹100 off · Min order ₹199', color: 'from-orange-500 to-red-500', bg: 'bg-orange-50 dark:bg-orange-900/10', border: 'border-orange-200 dark:border-orange-800/30' },
+  { emoji: '🚀', code: 'FREEDEL', title: 'Free delivery all week', desc: 'On orders above ₹149 · No max cap', color: 'from-blue-500 to-cyan-500', bg: 'bg-blue-50 dark:bg-blue-900/10', border: 'border-blue-200 dark:border-blue-800/30' },
+  { emoji: '🌟', code: 'GOLD2025', title: '1 month Gold FREE', desc: 'New users only · Unlock member deals', color: 'from-yellow-400 to-orange-400', bg: 'bg-yellow-50 dark:bg-yellow-900/10', border: 'border-yellow-200 dark:border-yellow-800/30' },
 ];
 
 const OffersSection = () => {
@@ -38,7 +38,7 @@ const OffersSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default OffersSection
+export default OffersSection;

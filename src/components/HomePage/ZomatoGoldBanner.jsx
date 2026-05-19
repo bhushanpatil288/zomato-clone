@@ -1,12 +1,11 @@
 
-
 const ZomatoGoldBanner = () => {
   return (
     <section className="py-14 bg-[#f8f8f8] dark:bg-[#0f0f0f]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] rounded-3xl overflow-hidden p-8 lg:p-12">
           {/* Decorative stars */}
-          {["top-4 left-8", "top-12 right-24", "bottom-8 left-1/3", "top-1/2 right-16"].map((pos, i) => (
+          {['top-4 left-8', 'top-12 right-24', 'bottom-8 left-1/3', 'top-1/2 right-16'].map((pos, i) => (
             <div key={i} className={`absolute ${pos} text-yellow-400 opacity-60 text-xl select-none`}>★</div>
           ))}
           <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -25,7 +24,7 @@ const ZomatoGoldBanner = () => {
                 Get unlimited free delivery, exclusive discounts, complimentary dishes, and priority support — all for just ₹149/month.
               </p>
               <div className="flex flex-wrap gap-3">
-                {["Free delivery forever", "Up to 40% off", "Complimentary dishes", "24/7 priority support"].map((f) => (
+                {['Free delivery forever', 'Up to 40% off', 'Complimentary dishes', '24/7 priority support'].map((f) => (
                   <span key={f} className="flex items-center gap-1.5 bg-white/10 border border-white/20 text-white text-xs px-3 py-1.5 rounded-full">
                     <span className="text-yellow-400">✓</span> {f}
                   </span>
@@ -50,7 +49,7 @@ const ZomatoGoldBanner = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default ZomatoGoldBanner
+export default ZomatoGoldBanner;

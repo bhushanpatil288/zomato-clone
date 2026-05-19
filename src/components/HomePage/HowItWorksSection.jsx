@@ -1,9 +1,8 @@
 const HOW_IT_WORKS = [
-  { step: "01", icon: "📍", title: "Set your location", desc: "Tell us where you are — we'll show the best restaurants nearby delivering to you right now." },
-  { step: "02", icon: "🍽️", title: "Choose your meal", desc: "Browse menus, filter by cuisine, rating, or delivery time. Thousands of options every day." },
-  { step: "03", icon: "⚡", title: "Fast delivery", desc: "Track your order live on the map. Average delivery under 30 minutes, guaranteed fresh." },
+  { step: '01', icon: '📍', title: 'Set your location', desc: 'Tell us where you are — we\'ll show the best restaurants nearby delivering to you right now.' },
+  { step: '02', icon: '🍽️', title: 'Choose your meal', desc: 'Browse menus, filter by cuisine, rating, or delivery time. Thousands of options every day.' },
+  { step: '03', icon: '⚡', title: 'Fast delivery', desc: 'Track your order live on the map. Average delivery under 30 minutes, guaranteed fresh.' },
 ];
-
 
 const HowItWorksSections = () => {
   return (
@@ -37,7 +36,7 @@ const HowItWorksSections = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HowItWorksSections
+export default HowItWorksSections;

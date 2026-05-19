@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 const TESTIMONIALS = [
-  { name: "Priya S.", city: "Mumbai", text: "Zomato is my daily essential. The tracking feature is amazing and delivery is always on time!", avatar: "👩", rating: 5 },
-  { name: "Arjun M.", city: "Bangalore", text: "Gold membership is totally worth it. I save at least ₹2000 a month on food. Absolutely love it.", avatar: "👨🏽", rating: 5 },
-  { name: "Sneha K.", city: "Delhi", text: "Best food delivery app. Wide variety, great offers, and the app is super smooth. Highly recommend!", avatar: "👩🏻", rating: 5 },
+  { name: 'Priya S.', city: 'Mumbai', text: 'Zomato is my daily essential. The tracking feature is amazing and delivery is always on time!', avatar: '👩', rating: 5 },
+  { name: 'Arjun M.', city: 'Bangalore', text: 'Gold membership is totally worth it. I save at least ₹2000 a month on food. Absolutely love it.', avatar: '👨🏽', rating: 5 },
+  { name: 'Sneha K.', city: 'Delhi', text: 'Best food delivery app. Wide variety, great offers, and the app is super smooth. Highly recommend!', avatar: '👩🏻', rating: 5 },
 ];
-
-
 
 const TestimonialsSections = () => {
   const [testimonialIdx, setTestimonialIdx] = useState(0);
@@ -29,9 +27,9 @@ const TestimonialsSections = () => {
             <div
               key={i}
               className={`bg-white dark:bg-[#141414] rounded-3xl border p-6 transition-all duration-500 ${i === testimonialIdx
-                ? "border-[#E23744]/40 shadow-lg dark:shadow-none scale-[1.02]"
-                : "border-gray-100 dark:border-[#2e2e2e]"
-                }`}
+                ? 'border-[#E23744]/40 shadow-lg dark:shadow-none scale-[1.02]'
+                : 'border-gray-100 dark:border-[#2e2e2e]'
+              }`}
             >
               <div className="flex gap-0.5 mb-4">
                 {Array(t.rating).fill(0).map((_, j) => (
@@ -58,13 +56,13 @@ const TestimonialsSections = () => {
             <button
               key={i}
               onClick={() => setTestimonialIdx(i)}
-              className={`rounded-full transition-all ${i === testimonialIdx ? "w-6 h-2 bg-[#E23744]" : "w-2 h-2 bg-gray-300 dark:bg-[#2e2e2e]"}`}
+              className={`rounded-full transition-all ${i === testimonialIdx ? 'w-6 h-2 bg-[#E23744]' : 'w-2 h-2 bg-gray-300 dark:bg-[#2e2e2e]'}`}
             />
           ))}
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default TestimonialsSections
+export default TestimonialsSections;

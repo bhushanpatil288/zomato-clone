@@ -1,10 +1,8 @@
-import { useRef, useState } from "react";
-
-
+import { useRef, useState } from 'react';
 
 const HeroSection = () => {
   const heroRef = useRef(null);
-  const [heroSearch, setHeroSearch] = useState("");
+  const [heroSearch, setHeroSearch] = useState('');
 
   return (
     <section
@@ -22,11 +20,11 @@ const HeroSection = () => {
 
       {/* Floating food emojis */}
       {[
-        { e: "🍕", x: "80%", y: "15%", size: "text-5xl", delay: "0s", duration: "6s" },
-        { e: "🍔", x: "88%", y: "55%", size: "text-6xl", delay: "1s", duration: "7s" },
-        { e: "🍛", x: "75%", y: "80%", size: "text-4xl", delay: "2s", duration: "5s" },
-        { e: "🌮", x: "92%", y: "35%", size: "text-3xl", delay: "0.5s", duration: "8s" },
-        { e: "🧁", x: "70%", y: "40%", size: "text-3xl", delay: "3s", duration: "6.5s" },
+        { e: '🍕', x: '80%', y: '15%', size: 'text-5xl', delay: '0s', duration: '6s' },
+        { e: '🍔', x: '88%', y: '55%', size: 'text-6xl', delay: '1s', duration: '7s' },
+        { e: '🍛', x: '75%', y: '80%', size: 'text-4xl', delay: '2s', duration: '5s' },
+        { e: '🌮', x: '92%', y: '35%', size: 'text-3xl', delay: '0.5s', duration: '8s' },
+        { e: '🧁', x: '70%', y: '40%', size: 'text-3xl', delay: '3s', duration: '6.5s' },
       ].map((f, i) => (
         <div
           key={i}
@@ -68,7 +66,7 @@ const HeroSection = () => {
           {/* Headline */}
           <h1
             className="fade-up-2 text-white leading-[1.1] mb-6"
-            style={{ fontFamily: "'Fraunces', serif", fontSize: "clamp(2.8rem, 6vw, 5rem)", fontWeight: 900 }}
+            style={{ fontFamily: '\'Fraunces\', serif', fontSize: 'clamp(2.8rem, 6vw, 5rem)', fontWeight: 900 }}
           >
             Discover &<br />
             <span className="italic text-red-200">order food</span>
@@ -93,7 +91,7 @@ const HeroSection = () => {
                 className="flex-1 py-3 bg-transparent text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none text-sm"
               />
               {heroSearch && (
-                <button onClick={() => setHeroSearch("")} className="text-gray-400 hover:text-gray-600">
+                <button onClick={() => setHeroSearch('')} className="text-gray-400 hover:text-gray-600">
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2.5} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
                 </button>
               )}
@@ -105,10 +103,10 @@ const HeroSection = () => {
 
           {/* Quick chips */}
           <div className="mt-5 flex flex-wrap gap-2">
-            {["🍕 Pizza", "🍔 Burger", "🍛 Biryani", "🥗 Healthy", "🍣 Sushi"].map((s) => (
+            {['🍕 Pizza', '🍔 Burger', '🍛 Biryani', '🥗 Healthy', '🍣 Sushi'].map((s) => (
               <button
                 key={s}
-                onClick={() => setHeroSearch(s.split(" ")[1])}
+                onClick={() => setHeroSearch(s.split(' ')[1])}
                 className="bg-white/15 hover:bg-white/25 border border-white/25 text-white text-xs font-medium px-3.5 py-1.5 rounded-full transition-all backdrop-blur-sm"
               >
                 {s}
@@ -125,7 +123,7 @@ const HeroSection = () => {
         </svg>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HeroSection
+export default HeroSection;

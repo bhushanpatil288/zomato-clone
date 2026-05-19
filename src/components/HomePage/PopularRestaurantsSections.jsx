@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const RESTAURANTS = [
-  { id: 1, name: "Burger Republic", cuisine: "Burgers · American", rating: 4.5, time: "25-30 min", price: "₹200 for two", offer: "50% OFF up to ₹100", emoji: "🍔", tag: "Bestseller", veg: false, promoted: true },
-  { id: 2, name: "Spice Garden", cuisine: "North Indian · Biryani", rating: 4.3, time: "35-40 min", price: "₹350 for two", offer: "FREE delivery", emoji: "🍛", tag: "Popular", veg: false, promoted: false },
-  { id: 3, name: "Green Bowl Co.", cuisine: "Salads · Healthy Bowls", rating: 4.7, time: "20-25 min", price: "₹180 for two", offer: "30% OFF", emoji: "🥗", tag: "Trending", veg: true, promoted: false },
-  { id: 4, name: "Pizza Planet", cuisine: "Pizza · Italian · Pasta", rating: 4.4, time: "30-35 min", price: "₹300 for two", offer: "Buy 1 Get 1", emoji: "🍕", tag: "Gold", veg: false, promoted: true },
-  { id: 5, name: "Dosa House", cuisine: "South Indian · Dosa", rating: 4.6, time: "20-25 min", price: "₹150 for two", offer: "20% OFF", emoji: "🫓", tag: "Pure Veg", veg: true, promoted: false },
-  { id: 6, name: "Sushi Den", cuisine: "Japanese · Sushi · Ramen", rating: 4.8, time: "40-45 min", price: "₹600 for two", offer: "Free roll on ₹500+", emoji: "🍣", tag: "Top Rated", veg: false, promoted: false },
+  { id: 1, name: 'Burger Republic', cuisine: 'Burgers · American', rating: 4.5, time: '25-30 min', price: '₹200 for two', offer: '50% OFF up to ₹100', emoji: '🍔', tag: 'Bestseller', veg: false, promoted: true },
+  { id: 2, name: 'Spice Garden', cuisine: 'North Indian · Biryani', rating: 4.3, time: '35-40 min', price: '₹350 for two', offer: 'FREE delivery', emoji: '🍛', tag: 'Popular', veg: false, promoted: false },
+  { id: 3, name: 'Green Bowl Co.', cuisine: 'Salads · Healthy Bowls', rating: 4.7, time: '20-25 min', price: '₹180 for two', offer: '30% OFF', emoji: '🥗', tag: 'Trending', veg: true, promoted: false },
+  { id: 4, name: 'Pizza Planet', cuisine: 'Pizza · Italian · Pasta', rating: 4.4, time: '30-35 min', price: '₹300 for two', offer: 'Buy 1 Get 1', emoji: '🍕', tag: 'Gold', veg: false, promoted: true },
+  { id: 5, name: 'Dosa House', cuisine: 'South Indian · Dosa', rating: 4.6, time: '20-25 min', price: '₹150 for two', offer: '20% OFF', emoji: '🫓', tag: 'Pure Veg', veg: true, promoted: false },
+  { id: 6, name: 'Sushi Den', cuisine: 'Japanese · Sushi · Ramen', rating: 4.8, time: '40-45 min', price: '₹600 for two', offer: 'Free roll on ₹500+', emoji: '🍣', tag: 'Top Rated', veg: false, promoted: false },
 ];
 
 /* ─── RESTAURANT CARD ─────────────────────────────────── */
@@ -37,7 +37,7 @@ function RestaurantCard({ r }) {
           onClick={(e) => { e.stopPropagation(); setLiked(!liked); }}
           className="absolute top-3 right-3 w-8 h-8 bg-white dark:bg-[#2a2a2a] rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
         >
-          <span className={`text-sm transition-all ${liked ? "scale-125" : ""}`}>{liked ? "❤️" : "🤍"}</span>
+          <span className={`text-sm transition-all ${liked ? 'scale-125' : ''}`}>{liked ? '❤️' : '🤍'}</span>
         </button>
 
         {/* Veg indicator */}
@@ -73,7 +73,6 @@ function RestaurantCard({ r }) {
   );
 }
 
-
 const PopularRestaurantsSections = () => {
   return (
     <section className="py-14 bg-[#f8f8f8] dark:bg-[#0f0f0f]">
@@ -95,8 +94,8 @@ const PopularRestaurantsSections = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default PopularRestaurantsSections
+export default PopularRestaurantsSections;
 

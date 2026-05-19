@@ -1,5 +1,4 @@
 
-
 const NewsLetterSections = () => {
   return (
     <section className="py-14 bg-white dark:bg-[#0a0a0a]">
@@ -22,7 +21,7 @@ const NewsLetterSections = () => {
         <p className="text-xs text-gray-400 mt-3">No spam, ever. Unsubscribe anytime.</p>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default NewsLetterSections
+export default NewsLetterSections;

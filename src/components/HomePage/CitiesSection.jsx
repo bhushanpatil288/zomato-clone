@@ -1,11 +1,11 @@
 
 const CITIES = [
-  { name: "Mumbai", count: "12,000+ restaurants", emoji: "🌆" },
-  { name: "Delhi", count: "9,500+ restaurants", emoji: "🏛️" },
-  { name: "Bangalore", count: "8,200+ restaurants", emoji: "🌿" },
-  { name: "Hyderabad", count: "6,100+ restaurants", emoji: "🕌" },
-  { name: "Surat", count: "3,800+ restaurants", emoji: "💎" },
-  { name: "Pune", count: "5,400+ restaurants", emoji: "🏙️" },
+  { name: 'Mumbai', count: '12,000+ restaurants', emoji: '🌆' },
+  { name: 'Delhi', count: '9,500+ restaurants', emoji: '🏛️' },
+  { name: 'Bangalore', count: '8,200+ restaurants', emoji: '🌿' },
+  { name: 'Hyderabad', count: '6,100+ restaurants', emoji: '🕌' },
+  { name: 'Surat', count: '3,800+ restaurants', emoji: '💎' },
+  { name: 'Pune', count: '5,400+ restaurants', emoji: '🏙️' },
 ];
 
 const CitiesSection = () => {
@@ -33,7 +33,7 @@ const CitiesSection = () => {
         </p>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default CitiesSection
+export default CitiesSection;

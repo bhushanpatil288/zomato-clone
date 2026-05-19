@@ -1,13 +1,12 @@
-import { useSelector } from "react-redux";
+
 const FOOTER_LINKS = {
-  Company: ["About Us", "Team", "Careers", "Blog", "Press Kit"],
-  "For Foodies": ["Zomato Gold", "App Download", "Gift Cards", "Order Food"],
-  "For Restaurants": ["Partner With Us", "Apps for Business", "Advertise", "Restaurant Login"],
-  Legal: ["Privacy Policy", "Terms of Use", "Cookie Policy", "Security"],
+  Company: ['About Us', 'Team', 'Careers', 'Blog', 'Press Kit'],
+  'For Foodies': ['Zomato Gold', 'App Download', 'Gift Cards', 'Order Food'],
+  'For Restaurants': ['Partner With Us', 'Apps for Business', 'Advertise', 'Restaurant Login'],
+  Legal: ['Privacy Policy', 'Terms of Use', 'Cookie Policy', 'Security'],
 };
 
 export default function Footer() {
-  const dark = useSelector((state) => state.theme.dark);
   return (
     <footer className="bg-white dark:bg-[#0a0a0a] border-t border-gray-100 dark:border-[#1e1e1e]">
       {/* App CTA strip */}
@@ -19,8 +18,8 @@ export default function Footer() {
           </div>
           <div className="flex gap-3">
             {[
-              { label: "App Store", icon: "🍎", sub: "Download on the" },
-              { label: "Google Play", icon: "▶", sub: "Get it on" },
+              { label: 'App Store', icon: '🍎', sub: 'Download on the' },
+              { label: 'Google Play', icon: '▶', sub: 'Get it on' },
             ].map((a) => (
               <button
                 key={a.label}
@@ -55,11 +54,11 @@ export default function Footer() {
             {/* Social icons */}
             <div className="flex gap-2.5">
               {[
-                { icon: "f", label: "Facebook", color: "hover:bg-blue-600" },
-                { icon: "𝕏", label: "Twitter", color: "hover:bg-black dark:hover:bg-white dark:hover:text-black" },
-                { icon: "in", label: "LinkedIn", color: "hover:bg-blue-700" },
-                { icon: "▶", label: "YouTube", color: "hover:bg-red-600" },
-                { icon: "📸", label: "Instagram", color: "hover:bg-pink-600" },
+                { icon: 'f', label: 'Facebook', color: 'hover:bg-blue-600' },
+                { icon: '𝕏', label: 'Twitter', color: 'hover:bg-black dark:hover:bg-white dark:hover:text-black' },
+                { icon: 'in', label: 'LinkedIn', color: 'hover:bg-blue-700' },
+                { icon: '▶', label: 'YouTube', color: 'hover:bg-red-600' },
+                { icon: '📸', label: 'Instagram', color: 'hover:bg-pink-600' },
               ].map((s) => (
                 <button
                   key={s.label}
@@ -99,7 +98,7 @@ export default function Footer() {
               src="https://flagcdn.com/w40/in.png"
               alt="India"
               className="w-5 h-3.5 object-cover rounded-sm opacity-80"
-              onError={(e) => { e.target.style.display = "none"; }}
+              onError={(e) => { e.target.style.display = 'none'; }}
             />
             <span className="text-sm text-gray-400 dark:text-gray-500">India</span>
             <span className="text-gray-300 dark:text-gray-700">·</span>
