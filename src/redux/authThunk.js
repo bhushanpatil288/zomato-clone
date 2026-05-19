@@ -1,14 +1,16 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { login, api } from '../api/api';
+import { login, profile } from '../api/api';
+import { setToken } from './authStorage';
 
 export const loginUser = createAsyncThunk(
   'auth/loginUser',
   async (formData, thunkAPI) => {
     try {
       const response = await login(formData);
+      setToken(response.data.data.token);
       return response.data.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response?.data?.message);
+      return thunkAPI.rejectWithValue(error.response?.data?.message || 'Login Failed');
     }
   },
 );
@@ -16,15 +18,12 @@ export const loginUser = createAsyncThunk(
 export const getMe = createAsyncThunk(
   'auth/profile',
   async (_, thunkAPI) => {
-    const token = thunkAPI.getState().auth.user.token;
-
-    const response = await api.get('/auth/me', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
-    return response.data;
+    try {
+      const response = await profile();
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response?.data?.message);
+    }
   },
 );
 

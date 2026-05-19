@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { themeToggle } from '../redux/themeSlice';
 import { loginUser } from '../redux/authThunk';
+import { useNavigate } from 'react-router';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
   const toggleTheme = () => dispatch(themeToggle());
-  const { errors, isLoading: loading, user } = useSelector(state => state.auth);
+  const { errors, isLoading: loading, user: userData } = useSelector(state => state.auth);
   const dark = useSelector((state) => state.theme.dark);
+  const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: '',
@@ -26,12 +28,16 @@ export default function LoginPage() {
       'https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap';
     link.rel = 'stylesheet';
     document.head.appendChild(link);
+
+    if (userData) {
+      navigate('/dashboard');
+    }
+
     return () => document.head.removeChild(link);
   }, [loading]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
     dispatch(loginUser(formData));
   };
 
