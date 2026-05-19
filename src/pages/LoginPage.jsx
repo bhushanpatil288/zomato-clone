@@ -34,7 +34,7 @@ export default function LoginPage() {
     }
 
     return () => document.head.removeChild(link);
-  }, [loading]);
+  }, [loading, navigate, userData]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
