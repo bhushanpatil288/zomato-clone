@@ -1,14 +1,24 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { themeToggle } from '../redux/themeSlice';
+import { loginUser } from '../redux/authThunk';
 
 export default function LoginPage() {
+  const dispatch = useDispatch();
+  const toggleTheme = () => dispatch(themeToggle());
+  const { errors, isLoading: loading, user } = useSelector(state => state.auth);
   const dark = useSelector((state) => state.theme.dark);
-  const toggleTheme = () => dispatchEvent(themeToggle());
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+
+  const [formData, setFormData] = useState({
+    email: '',
+    password: '',
+  });
+
   const [showPass, setShowPass] = useState(false);
-  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) =>{
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   useEffect(() => {
     const link = document.createElement('link');
@@ -17,12 +27,12 @@ export default function LoginPage() {
     link.rel = 'stylesheet';
     document.head.appendChild(link);
     return () => document.head.removeChild(link);
-  }, []);
+  }, [loading]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => setLoading(false), 1500);
+    console.log(formData);
+    dispatch(loginUser(formData));
   };
 
   return (
@@ -124,8 +134,9 @@ export default function LoginPage() {
                 </label>
                 <input
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   placeholder="you@example.com"
                   required
                   className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#2e2e2e] bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent transition-all text-sm"
@@ -140,8 +151,9 @@ export default function LoginPage() {
                 <div className="relative">
                   <input
                     type={showPass ? 'text' : 'password'}
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
                     placeholder="••••••••"
                     required
                     className="w-full px-4 py-3 pr-12 rounded-xl border border-gray-200 dark:border-[#2e2e2e] bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent transition-all text-sm"
@@ -188,6 +200,9 @@ export default function LoginPage() {
                   'Sign in'
                 )}
               </button>
+              {errors &&
+                <p className='text-red-500 text-center'>{errors}</p>
+              }
             </form>
 
             {/* Divider */}

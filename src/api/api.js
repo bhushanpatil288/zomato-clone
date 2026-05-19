@@ -1,17 +1,18 @@
 import axios from 'axios';
-import store from '../redux/store';
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: import.meta.env.VITE_BASE_URL,
 });
 
 // Attaches JWT token on every require automatically
-api.interceptors.request.use((config) => {
-  const token = store.getState().auth?.user?.token || '';
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
+// api.interceptors.request.use((config) => {
+//   const user = JSON.parse(localStorage.getItem('user'));
+//   if (user?.token) {
+//     config.headers.Authorization = `Bearer ${user.token}`;
+//   }
+//   return config;
+// });
 
-export const login = (formData) => axios.post('auth/login', formData);
+export const login = (formData) => api.post('/auth/login', formData);
+
+export const profile = () => axios.get('/auth/me');
