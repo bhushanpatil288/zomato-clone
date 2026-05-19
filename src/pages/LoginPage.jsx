@@ -16,7 +16,7 @@ export default function LoginPage() {
 
   const [showPass, setShowPass] = useState(false);
 
-  const handleChange = (e) =>{
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 

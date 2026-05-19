@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
-import { 
+import {
   DashboardPage,
   HomePage,
-  LoginPage 
+  LoginPage,
 } from './pages';
 
 import Layout from './Layout';
