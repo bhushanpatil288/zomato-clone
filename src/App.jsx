@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router';
-import { LoginPage } from './pages';
+import { LoginPage, HomePage } from './pages';
 import Layout from './Layout';
 
 const App = () => {
@@ -7,8 +7,9 @@ const App = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout />}>
-          <Route path='/' element={<LoginPage />} />
+          <Route path='/' element={<HomePage />} />
         </Route>
+        <Route path='/login' element={<LoginPage />} />
       </Routes>
     </BrowserRouter>
   );

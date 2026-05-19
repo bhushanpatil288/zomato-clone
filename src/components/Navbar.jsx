@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { themeToggle } from '../redux/themeSlice';
+import { useNavigate } from 'react-router';
 
 /* ─── DATA ─────────────────────────────────────────────── */
 const NAV_LINKS = ['Home', 'Explore', 'Offers', 'Zomato Gold', 'Help'];
 
 export default function Navbar() {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const dark = useSelector((state) => state.theme.dark);
   const toggleTheme = () => dispatch(themeToggle());
@@ -111,6 +113,7 @@ export default function Navbar() {
                 ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#1e1e1e]'
                 : 'text-white/90 hover:text-white hover:bg-white/15'
               }`}
+              onClick={() => navigate('/login')}
             >
               Log in
             </button>

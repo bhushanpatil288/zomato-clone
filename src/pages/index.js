@@ -1,5 +1,7 @@
-import LoginPage from './HomePage';
+import HomePage from './HomePage';
+import LoginPage from './LoginPage';
 
 export {
+  HomePage,
   LoginPage,
 };

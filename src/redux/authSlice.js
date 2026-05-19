@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { loginUser } from './authThunk';
 
-const initialState = {};
+const initialState = {
+  user: null,
+  isLoading: false,
+  errors: null,
+};
 
 const authSlice = createSlice({
   name: 'auth',
@@ -9,6 +14,21 @@ const authSlice = createSlice({
     logout: () => {
       //todo
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(loginUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(loginUser.rejected, (state, action) => {
+        state.user = null;
+        state.isLoading = false;
+        state.errors = action.payload;
+      })
+      .addCase(loginUser.pending, (state) => {
+        state.isLoading = true;
+      });
   },
 });
 
