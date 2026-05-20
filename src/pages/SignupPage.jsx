@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { themeToggle } from '../redux/themeSlice';
 import { registerUser } from '../redux/authThunk';
 import { useNavigate } from 'react-router';
+import { LuUtensilsCrossed, LuPackage, LuTrendingUp, LuRocket } from 'react-icons/lu';
 
 export default function SignupPage() {
   const dispatch = useDispatch();
@@ -117,19 +118,22 @@ export default function SignupPage() {
             {/* Perks */}
             <div className="space-y-4 text-left">
               {[
-                { icon: '🍽️', title: 'Easy menu management', desc: 'Add, edit & organise your dishes' },
-                { icon: '📦', title: 'Real-time order tracking', desc: 'Accept & manage incoming orders' },
-                { icon: '📊', title: 'Business dashboard', desc: 'Revenue, stats & performance data' },
-                { icon: '🚀', title: 'Grow your reach', desc: 'Reach millions of hungry customers' },
-              ].map((p) => (
-                <div key={p.title} className="flex items-start gap-3 bg-white/10 rounded-xl p-3 border border-white/20">
-                  <div className="text-2xl">{p.icon}</div>
-                  <div>
-                    <p className="text-white font-semibold text-sm">{p.title}</p>
-                    <p className="text-red-100 text-xs">{p.desc}</p>
+                { icon: LuUtensilsCrossed, title: 'Easy menu management', desc: 'Add, edit & organise your dishes' },
+                { icon: LuPackage, title: 'Real-time order tracking', desc: 'Accept & manage incoming orders' },
+                { icon: LuTrendingUp, title: 'Business dashboard', desc: 'Revenue, stats & performance data' },
+                { icon: LuRocket, title: 'Grow your reach', desc: 'Reach millions of hungry customers' },
+              ].map((p) => {
+                const Icon = p.icon;
+                return (
+                  <div key={p.title} className="flex items-start gap-3 bg-white/10 rounded-xl p-3 border border-white/20">
+                    <div className="text-white"><Icon className="w-5 h-5" /></div>
+                    <div>
+                      <p className="text-white font-semibold text-sm">{p.title}</p>
+                      <p className="text-red-100 text-xs">{p.desc}</p>
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>

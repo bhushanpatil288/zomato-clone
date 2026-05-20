@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getOrders, updateOrderStatus } from '../../redux/authThunk';
+import { LuPackage, LuMapPin, LuImageOff, LuChevronLeft, LuChevronRight, LuArrowRight, LuBan } from 'react-icons/lu';
 
 const STATUS_FLOW = ['pending', 'confirmed', 'preparing', 'out_for_delivery', 'delivered'];
 const STATUS_LABELS = {
@@ -98,7 +99,9 @@ const OrdersPanel = () => {
         <div className="space-y-4">
           {orders.length === 0 ? (
             <div className="text-center py-16">
-              <div className="text-5xl mb-3">📦</div>
+              <div className="w-16 h-16 bg-gray-100 dark:bg-[#1e1e1e] rounded-2xl flex items-center justify-center mx-auto mb-4">
+                <LuPackage className="w-7 h-7 text-gray-400" />
+              </div>
               <p className="text-gray-500 dark:text-gray-400 font-medium">No orders found</p>
               <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">
                 {statusFilter ? 'Try a different status filter' : 'Orders will appear here when customers place them'}
@@ -128,7 +131,9 @@ const OrdersPanel = () => {
                       {item.foodId?.image ? (
                         <img src={`${baseUrl}${item.foodId.image}`} alt={item.foodId?.title} className="w-10 h-10 rounded-lg object-cover" />
                       ) : (
-                        <div className="w-10 h-10 rounded-lg bg-gray-200 dark:bg-[#333] flex items-center justify-center text-lg">🍔</div>
+                        <div className="w-10 h-10 rounded-lg bg-gray-200 dark:bg-[#333] flex items-center justify-center">
+                          <LuImageOff className="w-4 h-4 text-gray-400" />
+                        </div>
                       )}
                       <div className="flex-1 min-w-0">
                         <p className="text-sm font-medium text-gray-800 dark:text-gray-200 truncate">
@@ -148,9 +153,7 @@ const OrdersPanel = () => {
                 {/* Delivery address */}
                 {order.deliveryAddress && (
                   <div className="flex items-start gap-2 mb-4 text-xs text-gray-500 dark:text-gray-400">
-                    <svg className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-[#E23744]" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                    </svg>
+                    <LuMapPin className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 text-[#E23744]" />
                     <span>{order.deliveryAddress}</span>
                   </div>
                 )}
@@ -164,17 +167,19 @@ const OrdersPanel = () => {
                     {order.status !== 'cancelled' && order.status !== 'delivered' && (
                       <button
                         onClick={() => handleStatusUpdate(order._id, 'cancelled')}
-                        className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-red-50 dark:bg-red-900/20 text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30 transition-all"
+                        className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-red-50 dark:bg-red-900/20 text-red-500 hover:bg-red-100 dark:hover:bg-red-900/30 transition-all flex items-center gap-1"
                       >
+                        <LuBan className="w-3.5 h-3.5" />
                         Cancel
                       </button>
                     )}
                     {nextStatus && (
                       <button
                         onClick={() => handleStatusUpdate(order._id, nextStatus)}
-                        className="px-4 py-1.5 text-xs font-semibold rounded-lg bg-[#E23744] text-white hover:bg-[#c8202d] active:scale-95 transition-all shadow-sm"
+                        className="px-4 py-1.5 text-xs font-semibold rounded-lg bg-[#E23744] text-white hover:bg-[#c8202d] active:scale-95 transition-all shadow-sm flex items-center gap-1"
                       >
-                        → {STATUS_LABELS[nextStatus]}
+                        <LuArrowRight className="w-3.5 h-3.5" />
+                        {STATUS_LABELS[nextStatus]}
                       </button>
                     )}
                   </div>
@@ -191,9 +196,10 @@ const OrdersPanel = () => {
           <button
             disabled={currentPage <= 1}
             onClick={() => setCurrentPage((p) => p - 1)}
-            className="px-4 py-2 text-sm font-medium rounded-xl border border-gray-200 dark:border-[#2e2e2e] text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+            className="px-4 py-2 text-sm font-medium rounded-xl border border-gray-200 dark:border-[#2e2e2e] text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e] disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-1"
           >
-            ← Prev
+            <LuChevronLeft className="w-4 h-4" />
+            Prev
           </button>
           <span className="text-sm text-gray-500 dark:text-gray-400">
             Page {page} of {pages}
@@ -201,9 +207,10 @@ const OrdersPanel = () => {
           <button
             disabled={currentPage >= pages}
             onClick={() => setCurrentPage((p) => p + 1)}
-            className="px-4 py-2 text-sm font-medium rounded-xl border border-gray-200 dark:border-[#2e2e2e] text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e] disabled:opacity-40 disabled:cursor-not-allowed transition-all"
+            className="px-4 py-2 text-sm font-medium rounded-xl border border-gray-200 dark:border-[#2e2e2e] text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e] disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-1"
           >
-            Next →
+            Next
+            <LuChevronRight className="w-4 h-4" />
           </button>
         </div>
       )}

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { addFood, updateFood } from '../../redux/authThunk';
+import { LuX, LuUpload, LuImage } from 'react-icons/lu';
 
 const CATEGORIES = ['Starter', 'Main Course', 'Dessert', 'Beverages', 'Snacks', 'Other'];
 
@@ -87,7 +88,7 @@ const FoodFormModal = ({ isOpen, onClose, editingFood }) => {
             {editingFood ? 'Edit Food Item' : 'Add Food Item'}
           </h2>
           <button onClick={onClose} className="w-8 h-8 rounded-full bg-gray-100 dark:bg-[#252525] flex items-center justify-center text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:scale-110 transition-all">
-            ✕
+            <LuX className="w-4 h-4" />
           </button>
         </div>
 
@@ -99,10 +100,11 @@ const FoodFormModal = ({ isOpen, onClose, editingFood }) => {
               {preview ? (
                 <img src={preview} alt="Preview" className="w-full h-full object-cover" />
               ) : (
-                <span className="text-3xl">📸</span>
+                <LuImage className="w-8 h-8 text-gray-400" />
               )}
             </div>
-            <label className="cursor-pointer px-4 py-2 rounded-xl bg-gray-100 dark:bg-[#252525] text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-[#333] transition-all">
+            <label className="cursor-pointer px-4 py-2 rounded-xl bg-gray-100 dark:bg-[#252525] text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-[#333] transition-all flex items-center gap-2">
+              <LuUpload className="w-4 h-4" />
               {preview ? 'Change Photo' : 'Upload Photo'}
               <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
             </label>

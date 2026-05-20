@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { deleteFood, updateFood } from '../../redux/authThunk';
+import { LuCheck, LuX, LuPencil, LuTrash2, LuImageOff, LuSearch } from 'react-icons/lu';
 
 const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
   const dispatch = useDispatch();
@@ -21,7 +22,9 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
       {filtered.length === 0 ? (
         <div className="col-span-full text-center py-16">
-          <div className="text-5xl mb-3">🍽️</div>
+          <div className="w-16 h-16 bg-gray-100 dark:bg-[#1e1e1e] rounded-2xl flex items-center justify-center mx-auto mb-4">
+            <LuSearch className="w-7 h-7 text-gray-400" />
+          </div>
           <p className="text-gray-500 dark:text-gray-400 font-medium">No food items found</p>
           <p className="text-gray-400 dark:text-gray-500 text-sm mt-1">Try changing your filters or add a new item</p>
           {search && (
@@ -48,7 +51,7 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
             ) : (
-              <div className="text-7xl select-none group-hover:scale-110 transition-transform duration-300">🍔</div>
+              <LuImageOff className="w-10 h-10 text-gray-300 dark:text-gray-600" />
             )}
 
             {/* Category badge */}
@@ -63,7 +66,8 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
 
             {/* Availability indicator */}
             {!food.isAvailable && (
-              <div className="absolute top-3 right-3 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-lg">
+              <div className="absolute top-3 right-3 bg-orange-500 text-white text-[10px] font-bold px-2 py-1 rounded-lg flex items-center gap-1">
+                <LuX className="w-3 h-3" />
                 Unavailable
               </div>
             )}
@@ -83,13 +87,14 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
               {/* Toggle availability */}
               <button
                 onClick={() => handleToggleAvailability(food)}
-                className={`flex-1 py-1.5 text-xs font-semibold rounded-lg transition-all ${
+                className={`flex-1 py-1.5 text-xs font-semibold rounded-lg transition-all flex items-center justify-center gap-1.5 ${
                   food.isAvailable
                     ? 'bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 hover:bg-green-100 dark:hover:bg-green-900/30'
                     : 'bg-orange-50 dark:bg-orange-900/20 text-orange-600 dark:text-orange-400 hover:bg-orange-100 dark:hover:bg-orange-900/30'
                 }`}
               >
-                {food.isAvailable ? '✓ Available' : '✗ Unavailable'}
+                {food.isAvailable ? <LuCheck className="w-3.5 h-3.5" /> : <LuX className="w-3.5 h-3.5" />}
+                {food.isAvailable ? 'Available' : 'Unavailable'}
               </button>
 
               {/* Edit */}
@@ -97,7 +102,7 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
                 onClick={() => onEdit(food)}
                 className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-gray-50 dark:bg-[#252525] text-gray-600 dark:text-gray-400 hover:bg-[#E23744]/10 hover:text-[#E23744] transition-all"
               >
-                ✏️
+                <LuPencil className="w-3.5 h-3.5" />
               </button>
 
               {/* Delete */}
@@ -105,7 +110,7 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
                 onClick={() => handleDelete(food)}
                 className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-gray-50 dark:bg-[#252525] text-gray-600 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all"
               >
-                🗑️
+                <LuTrash2 className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>

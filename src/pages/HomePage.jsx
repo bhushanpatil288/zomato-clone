@@ -1,7 +1,8 @@
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { useEffect } from 'react';
 import { getToken } from '../redux/authStorage';
+import { LuUtensilsCrossed, LuPackage, LuTrendingUp, LuRocket, LuChefHat } from 'react-icons/lu';
 
 /* ─── PARTNER LANDING PAGE ──────────────────────────────── */
 export default function HomePage() {
@@ -26,22 +27,22 @@ export default function HomePage() {
 
   const features = [
     {
-      icon: '🍽️',
+      icon: LuUtensilsCrossed,
       title: 'Menu Management',
       desc: 'Add, edit, and organise your food items with photos, categories, and pricing. Toggle availability instantly.',
     },
     {
-      icon: '📦',
+      icon: LuPackage,
       title: 'Order Tracking',
       desc: 'View incoming orders in real-time. Update status from pending to delivered with one click.',
     },
     {
-      icon: '📊',
+      icon: LuTrendingUp,
       title: 'Business Insights',
       desc: 'Track your revenue, monitor pending orders, and understand your performance at a glance.',
     },
     {
-      icon: '🚀',
+      icon: LuRocket,
       title: 'Grow Your Reach',
       desc: 'Connect with millions of customers on Zomato. More visibility, more orders, more growth.',
     },
@@ -94,9 +95,13 @@ export default function HomePage() {
             </div>
           </div>
 
-          {/* Floating emojis */}
-          <div className="absolute bottom-8 left-8 text-5xl select-none opacity-70 animate-bounce" style={{ animationDuration: '3s' }}>👨‍🍳</div>
-          <div className="absolute top-20 right-12 text-5xl select-none opacity-50 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>🍽️</div>
+          {/* Floating icons */}
+          <div className="absolute bottom-8 left-8 select-none opacity-20 animate-bounce" style={{ animationDuration: '3s' }}>
+            <LuChefHat className="w-16 h-16" />
+          </div>
+          <div className="absolute top-20 right-12 select-none opacity-15 animate-bounce" style={{ animationDuration: '4s', animationDelay: '1s' }}>
+            <LuUtensilsCrossed className="w-14 h-14" />
+          </div>
         </section>
 
         {/* ── Features Section ── */}
@@ -115,8 +120,8 @@ export default function HomePage() {
                   key={f.title}
                   className="bg-gray-50 dark:bg-[#1a1a1a] rounded-2xl border border-gray-100 dark:border-[#2e2e2e] p-6 hover:shadow-xl hover:border-[#E23744]/20 hover:-translate-y-1 transition-all duration-300 group"
                 >
-                  <div className="w-14 h-14 bg-[#E23744]/10 rounded-2xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
-                    {f.icon}
+                  <div className="w-14 h-14 bg-[#E23744]/10 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                    <f.icon className="w-7 h-7 text-[#E23744]" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 group-hover:text-[#E23744] transition-colors">{f.title}</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">{f.desc}</p>

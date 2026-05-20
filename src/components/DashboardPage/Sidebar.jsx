@@ -1,13 +1,13 @@
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { logout } from '../../redux/authSlice';
+import { LuLayoutDashboard, LuUtensilsCrossed, LuPackage, LuSettings, LuLogOut, LuX } from 'react-icons/lu';
 
 const navItems = [
-  { icon: '📊', label: 'Dashboard', key: 'dashboard' },
-  { icon: '🍽️', label: 'Menu', key: 'menu' },
-  { icon: '📦', label: 'Orders', key: 'orders' },
-  { icon: '⚙️', label: 'Settings', key: 'settings' },
+  { icon: LuLayoutDashboard, label: 'Dashboard', key: 'dashboard' },
+  { icon: LuUtensilsCrossed, label: 'Menu', key: 'menu' },
+  { icon: LuPackage, label: 'Orders', key: 'orders' },
+  { icon: LuSettings, label: 'Settings', key: 'settings' },
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen, activeView, setActiveView }) => {
@@ -37,7 +37,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, activeView, setActiveView }) => 
               <span className="text-[9px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-widest -mt-0.5">partner</span>
             </div>
           </div>
-          <button className="lg:hidden text-gray-400 hover:text-gray-600" onClick={() => setSidebarOpen(false)}>✕</button>
+          <button className="lg:hidden text-gray-400 hover:text-gray-600" onClick={() => setSidebarOpen(false)}>
+            <LuX className="w-5 h-5" />
+          </button>
         </div>
 
         {/* Restaurant Info */}
@@ -61,24 +63,27 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, activeView, setActiveView }) => 
 
         {/* Nav */}
         <nav className="flex-1 p-4 space-y-1">
-          {navItems.map((n) => (
-            <button
-              key={n.key}
-              onClick={() => { setActiveView(n.key); setSidebarOpen(false); }}
-              className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${activeView === n.key
-                ? 'bg-[#E23744] text-white shadow-md shadow-red-200 dark:shadow-none'
-                : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e]'
-              }`}
-            >
-              <span className="text-base">{n.icon}</span>
-              {n.label}
-              {n.key === 'orders' && pendingCount > 0 && (
-                <span className={`ml-auto text-xs rounded-full px-2 py-0.5 font-semibold ${activeView === n.key ? 'bg-white/20 text-white' : 'bg-[#E23744]/10 text-[#E23744]'}`}>
-                  {pendingCount}
-                </span>
-              )}
-            </button>
-          ))}
+          {navItems.map((n) => {
+            const Icon = n.icon;
+            return (
+              <button
+                key={n.key}
+                onClick={() => { setActiveView(n.key); setSidebarOpen(false); }}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${activeView === n.key
+                  ? 'bg-[#E23744] text-white shadow-md shadow-red-200 dark:shadow-none'
+                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e]'
+                }`}
+              >
+                <Icon className="w-[18px] h-[18px]" />
+                {n.label}
+                {n.key === 'orders' && pendingCount > 0 && (
+                  <span className={`ml-auto text-xs rounded-full px-2 py-0.5 font-semibold ${activeView === n.key ? 'bg-white/20 text-white' : 'bg-[#E23744]/10 text-[#E23744]'}`}>
+                    {pendingCount}
+                  </span>
+                )}
+              </button>
+            );
+          })}
         </nav>
 
         {/* Logout */}
@@ -89,7 +94,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, activeView, setActiveView }) => 
               dispatch(logout());
               navigate('/');
             }}>
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+            <LuLogOut className="w-[18px] h-[18px]" />
             Sign out
           </button>
         </div>

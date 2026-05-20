@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { themeToggle } from '../redux/themeSlice';
 import { loginUser } from '../redux/authThunk';
 import { useNavigate } from 'react-router';
+import { LuUtensilsCrossed, LuPackage, LuTrendingUp } from 'react-icons/lu';
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -71,31 +72,34 @@ export default function LoginPage() {
               Track orders, manage your menu, and grow your business — all in one dashboard.
             </p>
 
-            {/* Floating food cards */}
+            {/* Floating feature cards */}
             <div className="space-y-3">
               {[
-                { emoji: '🍽️', name: 'Menu Management', resto: 'Add, edit & manage items', time: 'Real-time', rating: '★' },
-                { emoji: '📦', name: 'Order Tracking', resto: 'Track & update order status', time: 'Live', rating: '★' },
-                { emoji: '📊', name: 'Business Insights', resto: 'Revenue & performance data', time: 'Analytics', rating: '★' },
-              ].map((item, i) => (
-                <div
-                  key={i}
-                  className="bg-white/15 backdrop-blur-sm rounded-2xl p-4 flex items-center gap-4 border border-white/20 hover:bg-white/20 transition-all duration-300"
-                  style={{ animationDelay: `${i * 0.15}s` }}
-                >
-                  <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-2xl">
-                    {item.emoji}
+                { icon: LuUtensilsCrossed, name: 'Menu Management', resto: 'Add, edit & manage items', time: 'Real-time', rating: '★' },
+                { icon: LuPackage, name: 'Order Tracking', resto: 'Track & update order status', time: 'Live', rating: '★' },
+                { icon: LuTrendingUp, name: 'Business Insights', resto: 'Revenue & performance data', time: 'Analytics', rating: '★' },
+              ].map((item, i) => {
+                const Icon = item.icon;
+                return (
+                  <div
+                    key={i}
+                    className="bg-white/15 backdrop-blur-sm rounded-2xl p-4 flex items-center gap-4 border border-white/20 hover:bg-white/20 transition-all duration-300"
+                    style={{ animationDelay: `${i * 0.15}s` }}
+                  >
+                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center text-white">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <div className="flex-1 text-left">
+                      <p className="font-semibold text-white text-sm">{item.name}</p>
+                      <p className="text-red-100 text-xs">{item.resto}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-white text-xs font-medium">{item.time}</p>
+                      <p className="text-yellow-300 text-xs">★ {item.rating}</p>
+                    </div>
                   </div>
-                  <div className="flex-1 text-left">
-                    <p className="font-semibold text-white text-sm">{item.name}</p>
-                    <p className="text-red-100 text-xs">{item.resto}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-white text-xs font-medium">{item.time}</p>
-                    <p className="text-yellow-300 text-xs">★ {item.rating}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
