@@ -1,7 +1,9 @@
+import { LuZap, LuRocket, LuSparkles } from 'react-icons/lu';
+
 const OFFERS = [
-  { emoji: '⚡', code: 'ZOMATO50', title: '50% off on first order', desc: 'Up to ₹100 off · Min order ₹199', color: 'from-orange-500 to-red-500', bg: 'bg-orange-50 dark:bg-orange-900/10', border: 'border-orange-200 dark:border-orange-800/30' },
-  { emoji: '🚀', code: 'FREEDEL', title: 'Free delivery all week', desc: 'On orders above ₹149 · No max cap', color: 'from-blue-500 to-cyan-500', bg: 'bg-blue-50 dark:bg-blue-900/10', border: 'border-blue-200 dark:border-blue-800/30' },
-  { emoji: '🌟', code: 'GOLD2025', title: '1 month Gold FREE', desc: 'New users only · Unlock member deals', color: 'from-yellow-400 to-orange-400', bg: 'bg-yellow-50 dark:bg-yellow-900/10', border: 'border-yellow-200 dark:border-yellow-800/30' },
+  { icon: LuZap, code: 'ZOMATO50', title: '50% off on first order', desc: 'Up to ₹100 off · Min order ₹199', color: 'from-orange-500 to-red-500', bg: 'bg-orange-50 dark:bg-orange-900/10', border: 'border-orange-200 dark:border-orange-800/30' },
+  { icon: LuRocket, code: 'FREEDEL', title: 'Free delivery all week', desc: 'On orders above ₹149 · No max cap', color: 'from-blue-500 to-cyan-500', bg: 'bg-blue-50 dark:bg-blue-900/10', border: 'border-blue-200 dark:border-blue-800/30' },
+  { icon: LuSparkles, code: 'GOLD2025', title: '1 month Gold FREE', desc: 'New users only · Unlock member deals', color: 'from-yellow-400 to-orange-400', bg: 'bg-yellow-50 dark:bg-yellow-900/10', border: 'border-yellow-200 dark:border-yellow-800/30' },
 ];
 
 const OffersSection = () => {
@@ -23,7 +25,7 @@ const OffersSection = () => {
               {/* Glow bg */}
               <div className={`absolute -top-10 -right-10 w-36 h-36 rounded-full bg-gradient-to-br ${o.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
               <div className="relative z-10">
-                <div className="text-4xl mb-3">{o.emoji}</div>
+                <div className="mb-3 text-gray-700 dark:text-gray-200"><o.icon className="w-8 h-8" /></div>
                 <h3 className="font-bold text-gray-900 dark:text-white text-base mb-1">{o.title}</h3>
                 <p className="text-gray-500 dark:text-gray-400 text-xs mb-4">{o.desc}</p>
                 <div className="flex items-center gap-2">

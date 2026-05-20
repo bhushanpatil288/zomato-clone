@@ -1,4 +1,4 @@
-
+import { FaApple, FaGooglePlay, FaFacebookF, FaXTwitter, FaLinkedinIn, FaYoutube, FaInstagram } from 'react-icons/fa6';
 const FOOTER_LINKS = {
   Company: ['About Us', 'Team', 'Careers', 'Blog', 'Press Kit'],
   'For Foodies': ['Zomato Gold', 'App Download', 'Gift Cards', 'Order Food'],
@@ -18,20 +18,23 @@ export default function Footer() {
           </div>
           <div className="flex gap-3">
             {[
-              { label: 'App Store', icon: '🍎', sub: 'Download on the' },
-              { label: 'Google Play', icon: '▶', sub: 'Get it on' },
-            ].map((a) => (
-              <button
-                key={a.label}
-                className="flex items-center gap-3 bg-white/15 hover:bg-white/25 border border-white/30 text-white px-4 py-3 rounded-2xl transition-all group"
-              >
-                <span className="text-2xl">{a.icon}</span>
-                <div className="text-left">
-                  <p className="text-[10px] text-white/70 leading-none">{a.sub}</p>
-                  <p className="text-sm font-bold leading-tight mt-0.5">{a.label}</p>
-                </div>
-              </button>
-            ))}
+              { label: 'App Store', icon: FaApple, sub: 'Download on the' },
+              { label: 'Google Play', icon: FaGooglePlay, sub: 'Get it on' },
+            ].map((a) => {
+              const Icon = a.icon;
+              return (
+                <button
+                  key={a.label}
+                  className="flex items-center gap-3 bg-white/15 hover:bg-white/25 border border-white/30 text-white px-4 py-3 rounded-2xl transition-all group"
+                >
+                  <Icon className="text-2xl" />
+                  <div className="text-left">
+                    <p className="text-[10px] text-white/70 leading-none">{a.sub}</p>
+                    <p className="text-sm font-bold leading-tight mt-0.5">{a.label}</p>
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
@@ -54,20 +57,23 @@ export default function Footer() {
             {/* Social icons */}
             <div className="flex gap-2.5">
               {[
-                { icon: 'f', label: 'Facebook', color: 'hover:bg-blue-600' },
-                { icon: '𝕏', label: 'Twitter', color: 'hover:bg-black dark:hover:bg-white dark:hover:text-black' },
-                { icon: 'in', label: 'LinkedIn', color: 'hover:bg-blue-700' },
-                { icon: '▶', label: 'YouTube', color: 'hover:bg-red-600' },
-                { icon: '📸', label: 'Instagram', color: 'hover:bg-pink-600' },
-              ].map((s) => (
-                <button
-                  key={s.label}
-                  title={s.label}
-                  className={`w-9 h-9 rounded-xl bg-gray-100 dark:bg-[#1e1e1e] text-gray-600 dark:text-gray-400 text-xs font-bold flex items-center justify-center transition-all hover:text-white ${s.color} hover:scale-110`}
-                >
-                  {s.icon}
-                </button>
-              ))}
+                { icon: FaFacebookF, label: 'Facebook', color: 'hover:bg-blue-600' },
+                { icon: FaXTwitter, label: 'Twitter', color: 'hover:bg-black dark:hover:bg-white dark:hover:text-black' },
+                { icon: FaLinkedinIn, label: 'LinkedIn', color: 'hover:bg-blue-700' },
+                { icon: FaYoutube, label: 'YouTube', color: 'hover:bg-red-600' },
+                { icon: FaInstagram, label: 'Instagram', color: 'hover:bg-pink-600' },
+              ].map((s) => {
+                const Icon = s.icon;
+                return (
+                  <button
+                    key={s.label}
+                    title={s.label}
+                    className={`w-9 h-9 rounded-xl bg-gray-100 dark:bg-[#1e1e1e] text-gray-600 dark:text-gray-400 flex items-center justify-center transition-all hover:text-white ${s.color} hover:scale-110`}
+                  >
+                    <Icon className="w-4 h-4" />
+                  </button>
+                );
+              })}
             </div>
           </div>
 
