@@ -21,8 +21,8 @@ const CategoryPills = ({ activeCategory, onCategoryChange }) => {
           >
             <div className={`w-16 h-16 rounded-2xl shadow-sm border flex items-center justify-center text-3xl transition-all
               ${activeCategory === c.key
-                ? 'bg-[#E23744]/10 border-[#E23744] shadow-md scale-105'
-                : 'bg-white dark:bg-[#1e1e1e] border-gray-100 dark:border-[#2e2e2e] group-hover:scale-110 group-hover:shadow-md group-hover:border-[#E23744]/30'
+                ? 'bg-[#E23744]/10 border-[#E23744] shadow-sm scale-100'
+                : 'bg-white dark:bg-[#1e1e1e] border-gray-100 dark:border-[#2e2e2e] group-hover:shadow-sm group-hover:border-[#E23744]/30'
               }`}
             >
               {c.icon}
