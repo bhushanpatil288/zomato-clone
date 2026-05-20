@@ -13,9 +13,9 @@ const RESTAURANTS = [
 function RestaurantCard({ r }) {
   const [liked, setLiked] = useState(false);
   return (
-    <div className="bg-white dark:bg-[#1a1a1a] rounded-2xl border border-gray-100 dark:border-[#2e2e2e] overflow-hidden hover:shadow-xl dark:hover:shadow-none hover:-translate-y-1 hover:border-[#E23744]/20 transition-all duration-300 cursor-pointer group">
+    <div className="bg-white dark:bg-[#0a0a0a] rounded-2xl border border-gray-100 dark:border-[#222222] overflow-hidden hover:shadow-xl dark:hover:shadow-none hover:-translate-y-1 hover:border-[#E23744]/20 transition-all duration-300 cursor-pointer group">
       {/* Image */}
-      <div className="h-44 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 dark:from-[#1e1e1e] dark:via-[#222] dark:to-[#252525] relative flex items-center justify-center overflow-hidden">
+      <div className="h-44 bg-gradient-to-br from-orange-50 via-red-50 to-pink-50 dark:from-[#111111] dark:via-[#222] dark:to-[#1a1a1a] relative flex items-center justify-center overflow-hidden">
         <div className="text-8xl select-none group-hover:scale-110 transition-transform duration-500">{r.emoji}</div>
 
         {/* Offer badge */}
@@ -27,7 +27,7 @@ function RestaurantCard({ r }) {
 
         {/* Promoted tag */}
         {r.promoted && (
-          <div className="absolute top-3 left-3 bg-white dark:bg-[#2a2a2a] text-[#E23744] text-[10px] font-bold px-2 py-1 rounded-lg shadow-sm border border-red-100 dark:border-[#3e2e2e]">
+          <div className="absolute top-3 left-3 bg-white dark:bg-[#222222] text-[#E23744] text-[10px] font-bold px-2 py-1 rounded-lg shadow-sm border border-red-100 dark:border-[#3e2e2e]">
             Ad
           </div>
         )}
@@ -35,14 +35,14 @@ function RestaurantCard({ r }) {
         {/* Like button */}
         <button
           onClick={(e) => { e.stopPropagation(); setLiked(!liked); }}
-          className="absolute top-3 right-3 w-8 h-8 bg-white dark:bg-[#2a2a2a] rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
+          className="absolute top-3 right-3 w-8 h-8 bg-white dark:bg-[#222222] rounded-full flex items-center justify-center shadow-md hover:scale-110 transition-transform"
         >
           <span className={`text-sm transition-all ${liked ? 'scale-125' : ''}`}>{liked ? '❤️' : '🤍'}</span>
         </button>
 
         {/* Veg indicator */}
         {r.veg && (
-          <div className="absolute top-3 right-12 w-6 h-6 border-2 border-green-500 rounded bg-white dark:bg-[#2a2a2a] flex items-center justify-center">
+          <div className="absolute top-3 right-12 w-6 h-6 border-2 border-green-500 rounded bg-white dark:bg-[#222222] flex items-center justify-center">
             <div className="w-2.5 h-2.5 bg-green-500 rounded-full" />
           </div>
         )}
@@ -66,7 +66,7 @@ function RestaurantCard({ r }) {
             <span>·</span>
             <span>{r.price}</span>
           </div>
-          <span className="text-[10px] bg-gray-100 dark:bg-[#252525] text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-full font-medium">{r.tag}</span>
+          <span className="text-[10px] bg-gray-100 dark:bg-[#1a1a1a] text-gray-500 dark:text-gray-400 px-2 py-0.5 rounded-full font-medium">{r.tag}</span>
         </div>
       </div>
     </div>
@@ -75,7 +75,7 @@ function RestaurantCard({ r }) {
 
 const PopularRestaurantsSections = () => {
   return (
-    <section className="py-14 bg-[#f8f8f8] dark:bg-[#0f0f0f]">
+    <section className="py-14 bg-[#f8f8f8] dark:bg-[#000000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-8">
           <div>

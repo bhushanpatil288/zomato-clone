@@ -1,6 +1,6 @@
 const Header = ({ dark, toggleTheme, search, setSearch, setSidebarOpen, onAddFood }) => {
   return (
-    <header className="sticky top-0 z-10 bg-white dark:bg-[#141414] border-b border-gray-100 dark:border-[#2e2e2e] px-4 lg:px-6 py-4 flex items-center gap-4">
+    <header className="sticky top-0 z-10 bg-white dark:bg-[#000000] border-b border-gray-100 dark:border-[#222222] px-4 lg:px-6 py-4 flex items-center gap-4">
       {/* Hamburger */}
       <button className="lg:hidden text-gray-600 dark:text-gray-300" onClick={() => setSidebarOpen(true)}>
         <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
@@ -14,7 +14,7 @@ const Header = ({ dark, toggleTheme, search, setSearch, setSidebarOpen, onAddFoo
         <input
           type="text" value={search} onChange={(e) => setSearch(e.target.value)}
           placeholder="Search your menu items..."
-          className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-[#2e2e2e] bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all"
+          className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gray-200 dark:border-[#222222] bg-gray-50 dark:bg-[#111111] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all"
         />
       </div>
 
@@ -23,7 +23,7 @@ const Header = ({ dark, toggleTheme, search, setSearch, setSidebarOpen, onAddFoo
         {/* Dark mode */}
         <button
           onClick={toggleTheme}
-          className="w-9 h-9 rounded-xl bg-gray-100 dark:bg-[#1e1e1e] flex items-center justify-center text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"
+          className="w-9 h-9 rounded-xl bg-gray-100 dark:bg-[#111111] flex items-center justify-center text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"
         >
           {dark
             ? <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 3v1m0 16v1m8.66-9h-1M4.34 12h-1m15.07-6.07-.707.707M5.636 18.364l-.707.707M18.364 18.364l-.707-.707M5.636 5.636l-.707-.707M12 7a5 5 0 100 10A5 5 0 0012 7z" /></svg>

@@ -8,7 +8,7 @@ const OFFERS = [
 
 const OffersSection = () => {
   return (
-    <section className="py-14 bg-white dark:bg-[#0a0a0a]">
+    <section className="py-14 bg-white dark:bg-[#000000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-end justify-between mb-8">
           <div>

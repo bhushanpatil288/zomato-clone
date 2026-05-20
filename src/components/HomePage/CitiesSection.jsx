@@ -10,7 +10,7 @@ const CITIES = [
 
 const CitiesSection = () => {
   return (
-    <section className="py-14 bg-white dark:bg-[#0a0a0a]">
+    <section className="py-14 bg-white dark:bg-[#000000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <p className="text-[#E23744] text-sm font-semibold mb-1 uppercase tracking-widest">We're everywhere</p>
@@ -20,7 +20,7 @@ const CitiesSection = () => {
           {CITIES.map((c) => (
             <button
               key={c.name}
-              className="group bg-gray-50 dark:bg-[#141414] border border-gray-100 dark:border-[#2e2e2e] rounded-2xl p-4 text-center hover:border-[#E23744]/40 hover:bg-red-50 dark:hover:bg-[#E23744]/5 hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-none transition-all duration-200"
+              className="group bg-gray-50 dark:bg-[#000000] border border-gray-100 dark:border-[#222222] rounded-2xl p-4 text-center hover:border-[#E23744]/40 hover:bg-red-50 dark:hover:bg-[#E23744]/5 hover:-translate-y-0.5 hover:shadow-md dark:hover:shadow-none transition-all duration-200"
             >
               <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">{c.emoji}</div>
               <p className="font-bold text-gray-800 dark:text-white text-sm group-hover:text-[#E23744] transition-colors">{c.name}</p>

@@ -79,7 +79,7 @@ const HeroSection = () => {
 
           {/* Search bar */}
           <div className="fade-up-4 flex gap-3 max-w-xl">
-            <div className="flex-1 flex items-center gap-3 bg-white dark:bg-[#141414] rounded-2xl px-4 py-1.5 shadow-2xl">
+            <div className="flex-1 flex items-center gap-3 bg-white dark:bg-[#000000] rounded-2xl px-4 py-1.5 shadow-2xl">
               <svg className="w-5 h-5 text-gray-400 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
@@ -119,7 +119,7 @@ const HeroSection = () => {
       {/* Wave divider */}
       <div className="absolute bottom-0 inset-x-0">
         <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path d="M0 80L1440 80L1440 30C1200 70 960 0 720 30C480 60 240 10 0 30L0 80Z" className="fill-[#f8f8f8] dark:fill-[#0f0f0f]" />
+          <path d="M0 80L1440 80L1440 30C1200 70 960 0 720 30C480 60 240 10 0 30L0 80Z" className="fill-[#f8f8f8] dark:fill-[#000000]" />
         </svg>
       </div>
     </section>

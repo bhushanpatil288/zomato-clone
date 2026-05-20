@@ -25,9 +25,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, activeView, setActiveView }) => 
       {sidebarOpen && (
         <div className="fixed inset-0 bg-black/40 z-20 lg:hidden" onClick={() => setSidebarOpen(false)} />
       )}
-      <aside className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-[#141414] border-r border-gray-100 dark:border-[#2e2e2e] z-30 flex flex-col transition-transform duration-300 lg:translate-x-0 lg:static lg:z-auto ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
+      <aside className={`fixed top-0 left-0 h-full w-64 bg-white dark:bg-[#000000] border-r border-gray-100 dark:border-[#222222] z-30 flex flex-col transition-transform duration-300 lg:translate-x-0 lg:static lg:z-auto ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}>
         {/* Logo */}
-        <div className="p-6 border-b border-gray-100 dark:border-[#2e2e2e] flex items-center justify-between">
+        <div className="p-6 border-b border-gray-100 dark:border-[#222222] flex items-center justify-between">
           <div className="flex items-center gap-2 cursor-pointer" onClick={() => navigate('/')}>
             <div className="w-9 h-9 bg-[#E23744] rounded-xl flex items-center justify-center">
               <span className="text-white font-black text-sm">Z</span>
@@ -71,7 +71,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, activeView, setActiveView }) => 
                 onClick={() => { setActiveView(n.key); setSidebarOpen(false); }}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${activeView === n.key
                   ? 'bg-[#E23744] text-white shadow-md shadow-red-200 dark:shadow-none'
-                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e]'
+                  : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#111111]'
                 }`}
               >
                 <Icon className="w-[18px] h-[18px]" />
@@ -87,9 +87,9 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen, activeView, setActiveView }) => 
         </nav>
 
         {/* Logout */}
-        <div className="p-4 border-t border-gray-100 dark:border-[#2e2e2e]">
+        <div className="p-4 border-t border-gray-100 dark:border-[#222222]">
           <button
-            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e] transition-all"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#111111] transition-all"
             onClick={() => {
               dispatch(logout());
               navigate('/');

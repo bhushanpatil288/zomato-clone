@@ -22,7 +22,7 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4">
       {filtered.length === 0 ? (
         <div className="col-span-full text-center py-16">
-          <div className="w-16 h-16 bg-gray-100 dark:bg-[#1e1e1e] rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <div className="w-16 h-16 bg-gray-100 dark:bg-[#111111] rounded-2xl flex items-center justify-center mx-auto mb-4">
             <LuSearch className="w-7 h-7 text-gray-400" />
           </div>
           <p className="text-gray-500 dark:text-gray-400 font-medium">No food items found</p>
@@ -36,14 +36,14 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
       ) : filtered.map((food) => (
         <div
           key={food._id}
-          className={`bg-white dark:bg-[#1a1a1a] rounded-2xl border overflow-hidden hover:shadow-lg dark:hover:shadow-none hover:-translate-y-0.5 transition-all duration-200 group ${
+          className={`bg-white dark:bg-[#0a0a0a] rounded-2xl border overflow-hidden hover:shadow-lg dark:hover:shadow-none hover:-translate-y-0.5 transition-all duration-200 group ${
             food.isAvailable
-              ? 'border-gray-100 dark:border-[#2e2e2e] hover:border-[#E23744]/20'
+              ? 'border-gray-100 dark:border-[#222222] hover:border-[#E23744]/20'
               : 'border-orange-200 dark:border-orange-900/30 opacity-75'
           }`}
         >
           {/* Image area */}
-          <div className="h-36 bg-gradient-to-br from-orange-50 to-red-50 dark:from-[#1e1e1e] dark:to-[#252525] relative flex items-center justify-center overflow-hidden">
+          <div className="h-36 bg-gradient-to-br from-orange-50 to-red-50 dark:from-[#111111] dark:to-[#1a1a1a] relative flex items-center justify-center overflow-hidden">
             {food.image ? (
               <img
                 src={`${baseUrl}${food.image}`}
@@ -55,7 +55,7 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
             )}
 
             {/* Category badge */}
-            <div className="absolute top-3 left-3 bg-white dark:bg-[#2a2a2a] text-gray-700 dark:text-gray-300 text-[10px] font-bold px-2 py-1 rounded-lg shadow-sm">
+            <div className="absolute top-3 left-3 bg-white dark:bg-[#222222] text-gray-700 dark:text-gray-300 text-[10px] font-bold px-2 py-1 rounded-lg shadow-sm">
               {food.category}
             </div>
 
@@ -83,7 +83,7 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
             )}
 
             {/* Actions */}
-            <div className="flex items-center gap-2 pt-2 border-t border-gray-100 dark:border-[#2e2e2e]">
+            <div className="flex items-center gap-2 pt-2 border-t border-gray-100 dark:border-[#222222]">
               {/* Toggle availability */}
               <button
                 onClick={() => handleToggleAvailability(food)}
@@ -100,7 +100,7 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
               {/* Edit */}
               <button
                 onClick={() => onEdit(food)}
-                className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-gray-50 dark:bg-[#252525] text-gray-600 dark:text-gray-400 hover:bg-[#E23744]/10 hover:text-[#E23744] transition-all"
+                className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-gray-50 dark:bg-[#1a1a1a] text-gray-600 dark:text-gray-400 hover:bg-[#E23744]/10 hover:text-[#E23744] transition-all"
               >
                 <LuPencil className="w-3.5 h-3.5" />
               </button>
@@ -108,7 +108,7 @@ const FoodGrid = ({ filtered, onEdit, search, setSearch, setActiveFilter }) => {
               {/* Delete */}
               <button
                 onClick={() => handleDelete(food)}
-                className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-gray-50 dark:bg-[#252525] text-gray-600 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all"
+                className="px-3 py-1.5 text-xs font-semibold rounded-lg bg-gray-50 dark:bg-[#1a1a1a] text-gray-600 dark:text-gray-400 hover:bg-red-50 dark:hover:bg-red-900/20 hover:text-red-500 transition-all"
               >
                 <LuTrash2 className="w-3.5 h-3.5" />
               </button>

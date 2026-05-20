@@ -81,13 +81,13 @@ const FoodFormModal = ({ isOpen, onClose, editingFood }) => {
       <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
 
       {/* Modal */}
-      <div className="relative w-full max-w-md bg-white dark:bg-[#1a1a1a] rounded-3xl shadow-2xl border border-gray-100 dark:border-[#2e2e2e] overflow-hidden">
+      <div className="relative w-full max-w-md bg-white dark:bg-[#0a0a0a] rounded-3xl shadow-2xl border border-gray-100 dark:border-[#222222] overflow-hidden">
         {/* Header */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 dark:border-[#2e2e2e]">
+        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100 dark:border-[#222222]">
           <h2 className="text-lg font-bold text-gray-900 dark:text-white">
             {editingFood ? 'Edit Food Item' : 'Add Food Item'}
           </h2>
-          <button onClick={onClose} className="w-8 h-8 rounded-full bg-gray-100 dark:bg-[#252525] flex items-center justify-center text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:scale-110 transition-all">
+          <button onClick={onClose} className="w-8 h-8 rounded-full bg-gray-100 dark:bg-[#1a1a1a] flex items-center justify-center text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 hover:scale-110 transition-all">
             <LuX className="w-4 h-4" />
           </button>
         </div>
@@ -96,14 +96,14 @@ const FoodFormModal = ({ isOpen, onClose, editingFood }) => {
         <form onSubmit={handleSubmit} className="p-6 space-y-4 max-h-[70vh] overflow-y-auto">
           {/* Image Upload */}
           <div className="flex flex-col items-center gap-3">
-            <div className="w-28 h-28 rounded-2xl overflow-hidden border-2 border-dashed border-gray-200 dark:border-[#3e3e3e] bg-gray-50 dark:bg-[#252525] flex items-center justify-center">
+            <div className="w-28 h-28 rounded-2xl overflow-hidden border-2 border-dashed border-gray-200 dark:border-[#333333] bg-gray-50 dark:bg-[#1a1a1a] flex items-center justify-center">
               {preview ? (
                 <img src={preview} alt="Preview" className="w-full h-full object-cover" />
               ) : (
                 <LuImage className="w-8 h-8 text-gray-400" />
               )}
             </div>
-            <label className="cursor-pointer px-4 py-2 rounded-xl bg-gray-100 dark:bg-[#252525] text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-[#333] transition-all flex items-center gap-2">
+            <label className="cursor-pointer px-4 py-2 rounded-xl bg-gray-100 dark:bg-[#1a1a1a] text-sm font-medium text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-[#333] transition-all flex items-center gap-2">
               <LuUpload className="w-4 h-4" />
               {preview ? 'Change Photo' : 'Upload Photo'}
               <input type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
@@ -116,7 +116,7 @@ const FoodFormModal = ({ isOpen, onClose, editingFood }) => {
             <input
               type="text" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })}
               placeholder="e.g. Paneer Tikka" required
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#2e2e2e] bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#222222] bg-gray-50 dark:bg-[#111111] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all"
             />
           </div>
 
@@ -127,14 +127,14 @@ const FoodFormModal = ({ isOpen, onClose, editingFood }) => {
               <input
                 type="number" min="0" value={form.price} onChange={(e) => setForm({ ...form, price: e.target.value })}
                 placeholder="0" required
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#2e2e2e] bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#222222] bg-gray-50 dark:bg-[#111111] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all"
               />
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Category</label>
               <select
                 value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#2e2e2e] bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all"
+                className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#222222] bg-gray-50 dark:bg-[#111111] text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all"
               >
                 {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
               </select>
@@ -147,7 +147,7 @@ const FoodFormModal = ({ isOpen, onClose, editingFood }) => {
             <textarea
               value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })}
               placeholder="Short description of the dish..." rows={3}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#2e2e2e] bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all resize-none"
+              className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#222222] bg-gray-50 dark:bg-[#111111] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all resize-none"
             />
           </div>
 
@@ -156,7 +156,7 @@ const FoodFormModal = ({ isOpen, onClose, editingFood }) => {
           {/* Actions */}
           <div className="flex gap-3 pt-2">
             <button type="button" onClick={onClose}
-              className="flex-1 py-3 border border-gray-200 dark:border-[#2e2e2e] text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-[#252525] transition-all text-sm"
+              className="flex-1 py-3 border border-gray-200 dark:border-[#222222] text-gray-700 dark:text-gray-300 font-semibold rounded-xl hover:bg-gray-50 dark:hover:bg-[#1a1a1a] transition-all text-sm"
             >
               Cancel
             </button>

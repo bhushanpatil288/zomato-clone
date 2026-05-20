@@ -1,7 +1,7 @@
 
 const ZomatoGoldBanner = () => {
   return (
-    <section className="py-14 bg-[#f8f8f8] dark:bg-[#0f0f0f]">
+    <section className="py-14 bg-[#f8f8f8] dark:bg-[#000000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460] rounded-3xl overflow-hidden p-8 lg:p-12">
           {/* Decorative stars */}

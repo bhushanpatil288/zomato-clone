@@ -22,7 +22,7 @@ const StatsRow = () => {
       {stats.map((s) => {
         const Icon = s.icon;
         return (
-          <div key={s.label} className="bg-white dark:bg-[#1a1a1a] rounded-2xl border border-gray-100 dark:border-[#2e2e2e] p-4 text-center hover:shadow-md hover:border-[#E23744]/20 transition-all">
+          <div key={s.label} className="bg-white dark:bg-[#0a0a0a] rounded-2xl border border-gray-100 dark:border-[#222222] p-4 text-center hover:shadow-md hover:border-[#E23744]/20 transition-all">
             <div className={`w-10 h-10 ${s.bgColor} rounded-xl flex items-center justify-center mx-auto mb-2`}>
               <Icon className={`w-5 h-5 ${s.iconColor}`} />
             </div>

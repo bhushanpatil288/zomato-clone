@@ -44,7 +44,7 @@ export default function LoginPage() {
 
   return (
     <div style={{ fontFamily: '\'Outfit\', sans-serif' }} className={dark ? 'dark' : ''}>
-      <div className="min-h-screen flex bg-gray-50 dark:bg-[#0f0f0f]">
+      <div className="min-h-screen flex bg-gray-50 dark:bg-[#000000]">
 
         {/* ── Left Branding Panel ── */}
         <div className="hidden lg:flex lg:w-[52%] bg-[#E23744] relative overflow-hidden flex-col items-center justify-center p-16 select-none">
@@ -105,12 +105,12 @@ export default function LoginPage() {
         </div>
 
         {/* ── Right Form Panel ── */}
-        <div className="w-full lg:w-[48%] flex flex-col items-center justify-center p-8 lg:p-16 bg-white dark:bg-[#141414] relative">
+        <div className="w-full lg:w-[48%] flex flex-col items-center justify-center p-8 lg:p-16 bg-white dark:bg-[#000000] relative">
 
           {/* Dark mode toggle */}
           <button
             onClick={toggleTheme}
-            className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-100 dark:bg-[#2a2a2a] flex items-center justify-center text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"
+            className="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-100 dark:bg-[#222222] flex items-center justify-center text-gray-600 dark:text-gray-300 hover:scale-110 transition-transform"
             title="Toggle theme"
           >
             {dark ? (
@@ -149,7 +149,7 @@ export default function LoginPage() {
                   onChange={handleChange}
                   placeholder="you@example.com"
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#2e2e2e] bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent transition-all text-sm"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#222222] bg-gray-50 dark:bg-[#111111] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent transition-all text-sm"
                 />
               </div>
 
@@ -166,7 +166,7 @@ export default function LoginPage() {
                     onChange={handleChange}
                     placeholder="••••••••"
                     required
-                    className="w-full px-4 py-3 pr-12 rounded-xl border border-gray-200 dark:border-[#2e2e2e] bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent transition-all text-sm"
+                    className="w-full px-4 py-3 pr-12 rounded-xl border border-gray-200 dark:border-[#222222] bg-gray-50 dark:bg-[#111111] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent transition-all text-sm"
                   />
                   <button
                     type="button"
@@ -217,9 +217,9 @@ export default function LoginPage() {
 
             {/* Divider */}
             <div className="flex items-center gap-3 my-6">
-              <div className="flex-1 h-px bg-gray-200 dark:bg-[#2e2e2e]" />
+              <div className="flex-1 h-px bg-gray-200 dark:bg-[#222222]" />
               <span className="text-xs text-gray-400 font-medium">OR</span>
-              <div className="flex-1 h-px bg-gray-200 dark:bg-[#2e2e2e]" />
+              <div className="flex-1 h-px bg-gray-200 dark:bg-[#222222]" />
             </div>
 
             {/* Social login */}
@@ -247,7 +247,7 @@ export default function LoginPage() {
               ].map((s) => (
                 <button
                   key={s.label}
-                  className="flex items-center justify-center gap-2.5 py-3 border border-gray-200 dark:border-[#2e2e2e] rounded-xl hover:bg-gray-50 dark:hover:bg-[#1e1e1e] transition-all text-sm font-medium text-gray-700 dark:text-gray-300"
+                  className="flex items-center justify-center gap-2.5 py-3 border border-gray-200 dark:border-[#222222] rounded-xl hover:bg-gray-50 dark:hover:bg-[#111111] transition-all text-sm font-medium text-gray-700 dark:text-gray-300"
                 >
                   {s.icon}
                   {s.label}

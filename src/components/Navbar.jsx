@@ -27,14 +27,14 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled
-        ? 'bg-white/95 dark:bg-[#141414]/95 backdrop-blur-md shadow-sm dark:border-[#2e2e2e]/80 py-3'
+        ? 'bg-white/95 dark:bg-[#000000]/95 backdrop-blur-md shadow-sm dark:border-[#222222]/80 py-3'
         : 'bg-transparent py-5'
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center gap-6">
           {/* Logo */}
-          <a href="#" onClick={(e) => { e.preventDefault(); navigate('/'); }} className={`flex items-center gap-2.5 flex-shrink-0 rounded-3xl py-2 px-3 transition-all ${!scrolled ? 'bg-white/95 dark:bg-[#141414]/95 shadow-sm' : ''}`}>
+          <a href="#" onClick={(e) => { e.preventDefault(); navigate('/'); }} className={`flex items-center gap-2.5 flex-shrink-0 rounded-3xl py-2 px-3 transition-all ${!scrolled ? 'bg-white/95 dark:bg-[#000000]/95 shadow-sm' : ''}`}>
             <div className="w-9 h-9 bg-[#E23744] rounded-3xl flex items-center justify-center shadow-md shadow-red-300/50 dark:shadow-none">
               <span className="text-white font-black text-sm">Z</span>
             </div>
@@ -55,7 +55,7 @@ export default function Navbar() {
                     ? 'bg-[#E23744]/10 text-[#E23744]'
                     : 'bg-white/25 text-white'
                   : scrolled
-                    ? 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e] hover:text-gray-900 dark:hover:text-white'
+                    ? 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#111111] hover:text-gray-900 dark:hover:text-white'
                     : 'text-white/80 hover:text-white hover:bg-white/15'
                   }`}
               >
@@ -69,7 +69,7 @@ export default function Navbar() {
             <button
               onClick={toggleTheme}
               className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all hover:scale-110 ${scrolled
-                ? 'bg-gray-100 dark:bg-[#1e1e1e] text-gray-600 dark:text-gray-300'
+                ? 'bg-gray-100 dark:bg-[#111111] text-gray-600 dark:text-gray-300'
                 : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30'
                 }`}
             >
@@ -96,7 +96,7 @@ export default function Navbar() {
                 {/* Login */}
                 <button
                   className={`hidden sm:block px-4 py-2 text-sm font-semibold rounded-xl transition-all ${scrolled
-                    ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#1e1e1e]'
+                    ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#111111]'
                     : 'text-white/90 hover:text-white hover:bg-white/15'
                     }`}
                   onClick={() => navigate('/login')}
@@ -121,7 +121,7 @@ export default function Navbar() {
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               className={`lg:hidden w-9 h-9 rounded-xl flex items-center justify-center transition-all ${scrolled
-                ? 'bg-gray-100 dark:bg-[#1e1e1e] text-gray-700 dark:text-gray-300'
+                ? 'bg-gray-100 dark:bg-[#111111] text-gray-700 dark:text-gray-300'
                 : 'bg-white/20 text-white'
                 }`}
             >
@@ -136,7 +136,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {menuOpen && (
-          <div className="lg:hidden mt-3 bg-white dark:bg-[#141414] rounded-2xl border border-gray-100 dark:border-[#2e2e2e] shadow-xl overflow-hidden">
+          <div className="lg:hidden mt-3 bg-white dark:bg-[#000000] rounded-2xl border border-gray-100 dark:border-[#222222] shadow-xl overflow-hidden">
             <div className="p-4 space-y-1">
               {NAV_LINKS.map((l) => (
                 <button
@@ -144,18 +144,18 @@ export default function Navbar() {
                   onClick={() => { setActiveLink(l); setMenuOpen(false); }}
                   className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${activeLink === l
                     ? 'bg-[#E23744]/10 text-[#E23744]'
-                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#1e1e1e]'
+                    : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-[#111111]'
                     }`}
                 >
                   {l}
                 </button>
               ))}
-              <div className="flex gap-2 pt-2 border-t border-gray-100 dark:border-[#2e2e2e]">
+              <div className="flex gap-2 pt-2 border-t border-gray-100 dark:border-[#222222]">
                 {isLoggedIn ? (
                   <button onClick={() => { navigate('/dashboard'); setMenuOpen(false); }} className="flex-1 py-2.5 bg-[#E23744] text-white font-semibold rounded-xl text-sm hover:bg-[#c8202d] transition-all">Dashboard</button>
                 ) : (
                   <>
-                    <button onClick={() => { navigate('/login'); setMenuOpen(false); }} className="flex-1 py-2.5 border border-gray-200 dark:border-[#2e2e2e] text-gray-700 dark:text-gray-300 font-semibold rounded-xl text-sm hover:bg-gray-50 dark:hover:bg-[#1e1e1e] transition-all">Log in</button>
+                    <button onClick={() => { navigate('/login'); setMenuOpen(false); }} className="flex-1 py-2.5 border border-gray-200 dark:border-[#222222] text-gray-700 dark:text-gray-300 font-semibold rounded-xl text-sm hover:bg-gray-50 dark:hover:bg-[#111111] transition-all">Log in</button>
                     <button onClick={() => { navigate('/signup'); setMenuOpen(false); }} className="flex-1 py-2.5 bg-[#E23744] text-white font-semibold rounded-xl text-sm hover:bg-[#c8202d] transition-all">Register</button>
                   </>
                 )}

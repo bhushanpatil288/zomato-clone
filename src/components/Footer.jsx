@@ -8,7 +8,7 @@ const FOOTER_LINKS = {
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-[#0a0a0a] border-t border-gray-100 dark:border-[#1e1e1e]">
+    <footer className="bg-white dark:bg-[#000000] border-t border-gray-100 dark:border-[#111111]">
       {/* App CTA strip */}
       <div className="bg-gradient-to-r from-[#E23744] to-[#c8202d]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -68,7 +68,7 @@ export default function Footer() {
                   <button
                     key={s.label}
                     title={s.label}
-                    className={`w-9 h-9 rounded-xl bg-gray-100 dark:bg-[#1e1e1e] text-gray-600 dark:text-gray-400 flex items-center justify-center transition-all hover:text-white ${s.color} hover:scale-110`}
+                    className={`w-9 h-9 rounded-xl bg-gray-100 dark:bg-[#111111] text-gray-600 dark:text-gray-400 flex items-center justify-center transition-all hover:text-white ${s.color} hover:scale-110`}
                   >
                     <Icon className="w-4 h-4" />
                   </button>
@@ -95,7 +95,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-gray-100 dark:border-[#1e1e1e] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 pt-6 border-t border-gray-100 dark:border-[#111111] flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-gray-400 dark:text-gray-500">
             © {new Date().getFullYear()} Zomato Media Pvt. Ltd. · Made with ❤️ in India
           </p>

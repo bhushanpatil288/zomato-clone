@@ -72,7 +72,7 @@ const OrdersPanel = () => {
             onClick={() => { setStatusFilter(t.key); setCurrentPage(1); }}
             className={`flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold border transition-all ${statusFilter === t.key
               ? 'bg-[#E23744] text-white border-[#E23744]'
-              : 'bg-white dark:bg-[#1e1e1e] text-gray-600 dark:text-gray-400 border-gray-200 dark:border-[#2e2e2e] hover:border-[#E23744]/40'
+              : 'bg-white dark:bg-[#111111] text-gray-600 dark:text-gray-400 border-gray-200 dark:border-[#222222] hover:border-[#E23744]/40'
             }`}
           >
             {t.label}
@@ -99,7 +99,7 @@ const OrdersPanel = () => {
         <div className="space-y-4">
           {orders.length === 0 ? (
             <div className="text-center py-16">
-              <div className="w-16 h-16 bg-gray-100 dark:bg-[#1e1e1e] rounded-2xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-16 h-16 bg-gray-100 dark:bg-[#111111] rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <LuPackage className="w-7 h-7 text-gray-400" />
               </div>
               <p className="text-gray-500 dark:text-gray-400 font-medium">No orders found</p>
@@ -110,7 +110,7 @@ const OrdersPanel = () => {
           ) : orders.map((order) => {
             const nextStatus = getNextStatus(order.status);
             return (
-              <div key={order._id} className="bg-white dark:bg-[#1a1a1a] rounded-2xl border border-gray-100 dark:border-[#2e2e2e] p-5 hover:shadow-md transition-all">
+              <div key={order._id} className="bg-white dark:bg-[#0a0a0a] rounded-2xl border border-gray-100 dark:border-[#222222] p-5 hover:shadow-md transition-all">
                 {/* Top row */}
                 <div className="flex items-start justify-between gap-3 mb-4">
                   <div>
@@ -127,7 +127,7 @@ const OrdersPanel = () => {
                 {/* Items */}
                 <div className="space-y-2 mb-4">
                   {order.items?.map((item, i) => (
-                    <div key={i} className="flex items-center gap-3 bg-gray-50 dark:bg-[#252525] rounded-xl p-2.5">
+                    <div key={i} className="flex items-center gap-3 bg-gray-50 dark:bg-[#1a1a1a] rounded-xl p-2.5">
                       {item.foodId?.image ? (
                         <img src={`${baseUrl}${item.foodId.image}`} alt={item.foodId?.title} className="w-10 h-10 rounded-lg object-cover" />
                       ) : (
@@ -159,7 +159,7 @@ const OrdersPanel = () => {
                 )}
 
                 {/* Date + Actions */}
-                <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-[#2e2e2e]">
+                <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-[#222222]">
                   <p className="text-xs text-gray-400">
                     {order.createdAt ? new Date(order.createdAt).toLocaleString('en-IN', { dateStyle: 'medium', timeStyle: 'short' }) : ''}
                   </p>
@@ -196,7 +196,7 @@ const OrdersPanel = () => {
           <button
             disabled={currentPage <= 1}
             onClick={() => setCurrentPage((p) => p - 1)}
-            className="px-4 py-2 text-sm font-medium rounded-xl border border-gray-200 dark:border-[#2e2e2e] text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e] disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-1"
+            className="px-4 py-2 text-sm font-medium rounded-xl border border-gray-200 dark:border-[#222222] text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#111111] disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-1"
           >
             <LuChevronLeft className="w-4 h-4" />
             Prev
@@ -207,7 +207,7 @@ const OrdersPanel = () => {
           <button
             disabled={currentPage >= pages}
             onClick={() => setCurrentPage((p) => p + 1)}
-            className="px-4 py-2 text-sm font-medium rounded-xl border border-gray-200 dark:border-[#2e2e2e] text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e] disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-1"
+            className="px-4 py-2 text-sm font-medium rounded-xl border border-gray-200 dark:border-[#222222] text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#111111] disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center gap-1"
           >
             Next
             <LuChevronRight className="w-4 h-4" />

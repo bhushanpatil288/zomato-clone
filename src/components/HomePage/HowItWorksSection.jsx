@@ -6,7 +6,7 @@ const HOW_IT_WORKS = [
 
 const HowItWorksSections = () => {
   return (
-    <section className="py-20 bg-white dark:bg-[#0a0a0a] relative overflow-hidden">
+    <section className="py-20 bg-white dark:bg-[#000000] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-[#E23744]/3 dark:bg-[#E23744]/5 -translate-y-1/2 translate-x-1/3" />
       <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-[#E23744]/3 dark:bg-[#E23744]/5 translate-y-1/2 -translate-x-1/3" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -19,7 +19,7 @@ const HowItWorksSections = () => {
           <div className="hidden md:block absolute top-14 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-[#E23744]/20 via-[#E23744]/40 to-[#E23744]/20" />
           {HOW_IT_WORKS.map((s, i) => (
             <div key={s.step} className="relative group">
-              <div className="bg-gray-50 dark:bg-[#141414] rounded-3xl p-7 border border-gray-100 dark:border-[#2e2e2e] hover:border-[#E23744]/30 hover:shadow-xl dark:hover:shadow-none transition-all duration-300 text-center h-full">
+              <div className="bg-gray-50 dark:bg-[#000000] rounded-3xl p-7 border border-gray-100 dark:border-[#222222] hover:border-[#E23744]/30 hover:shadow-xl dark:hover:shadow-none transition-all duration-300 text-center h-full">
                 <div className="relative inline-block mb-5">
                   <div className="w-16 h-16 bg-[#E23744]/10 rounded-2xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
                     {s.icon}

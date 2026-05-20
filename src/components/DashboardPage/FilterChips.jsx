@@ -19,7 +19,7 @@ const FilterChips = ({
             onClick={() => setActiveFilter(f.key)}
             className={`flex-shrink-0 px-4 py-2 rounded-full text-xs font-semibold border transition-all ${activeFilter === f.key
               ? 'bg-[#E23744] text-white border-[#E23744] shadow-md shadow-red-200 dark:shadow-none'
-              : 'bg-white dark:bg-[#1e1e1e] text-gray-600 dark:text-gray-400 border-gray-200 dark:border-[#2e2e2e] hover:border-[#E23744]/40'
+              : 'bg-white dark:bg-[#111111] text-gray-600 dark:text-gray-400 border-gray-200 dark:border-[#222222] hover:border-[#E23744]/40'
             }`}
           >
             {f.label}

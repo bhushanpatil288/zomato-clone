@@ -16,7 +16,7 @@ const TestimonialsSections = () => {
   }, []);
 
   return (
-    <section className="py-14 bg-[#f8f8f8] dark:bg-[#0f0f0f]">
+    <section className="py-14 bg-[#f8f8f8] dark:bg-[#000000]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <p className="text-[#E23744] text-sm font-semibold mb-1 uppercase tracking-widest">Loved by millions</p>
@@ -26,9 +26,9 @@ const TestimonialsSections = () => {
           {TESTIMONIALS.map((t, i) => (
             <div
               key={i}
-              className={`bg-white dark:bg-[#141414] rounded-3xl border p-6 transition-all duration-500 ${i === testimonialIdx
+              className={`bg-white dark:bg-[#000000] rounded-3xl border p-6 transition-all duration-500 ${i === testimonialIdx
                 ? 'border-[#E23744]/40 shadow-lg dark:shadow-none scale-[1.02]'
-                : 'border-gray-100 dark:border-[#2e2e2e]'
+                : 'border-gray-100 dark:border-[#222222]'
               }`}
             >
               <div className="flex gap-0.5 mb-4">
@@ -56,7 +56,7 @@ const TestimonialsSections = () => {
             <button
               key={i}
               onClick={() => setTestimonialIdx(i)}
-              className={`rounded-full transition-all ${i === testimonialIdx ? 'w-6 h-2 bg-[#E23744]' : 'w-2 h-2 bg-gray-300 dark:bg-[#2e2e2e]'}`}
+              className={`rounded-full transition-all ${i === testimonialIdx ? 'w-6 h-2 bg-[#E23744]' : 'w-2 h-2 bg-gray-300 dark:bg-[#222222]'}`}
             />
           ))}
         </div>

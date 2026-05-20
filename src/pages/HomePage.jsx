@@ -50,7 +50,7 @@ export default function HomePage() {
 
   return (
     <div style={{ fontFamily: "'Outfit', sans-serif" }} className={dark ? 'dark' : ''}>
-      <div className="bg-[#f8f8f8] dark:bg-[#0f0f0f] text-gray-900 dark:text-white">
+      <div className="bg-[#f8f8f8] dark:bg-[#000000] text-gray-900 dark:text-white">
 
         {/* ── Hero Section ── */}
         <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#E23744] via-[#d42535] to-[#b01020]">
@@ -105,7 +105,7 @@ export default function HomePage() {
         </section>
 
         {/* ── Features Section ── */}
-        <section className="py-20 bg-white dark:bg-[#141414]">
+        <section className="py-20 bg-white dark:bg-[#000000]">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-14">
               <p className="text-[#E23744] text-sm font-semibold mb-2 uppercase tracking-widest">Why Partner with Us</p>
@@ -118,7 +118,7 @@ export default function HomePage() {
               {features.map((f) => (
                 <div
                   key={f.title}
-                  className="bg-gray-50 dark:bg-[#1a1a1a] rounded-2xl border border-gray-100 dark:border-[#2e2e2e] p-6 hover:shadow-xl hover:border-[#E23744]/20 hover:-translate-y-1 transition-all duration-300 group"
+                  className="bg-gray-50 dark:bg-[#0a0a0a] rounded-2xl border border-gray-100 dark:border-[#222222] p-6 hover:shadow-xl hover:border-[#E23744]/20 hover:-translate-y-1 transition-all duration-300 group"
                 >
                   <div className="w-14 h-14 bg-[#E23744]/10 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                     <f.icon className="w-7 h-7 text-[#E23744]" />
@@ -132,7 +132,7 @@ export default function HomePage() {
         </section>
 
         {/* ── CTA Section ── */}
-        <section className="py-16 bg-[#f8f8f8] dark:bg-[#0f0f0f]">
+        <section className="py-16 bg-[#f8f8f8] dark:bg-[#000000]">
           <div className="max-w-3xl mx-auto px-6 text-center">
             <div className="bg-gradient-to-br from-[#E23744] to-[#b01020] rounded-3xl p-10 lg:p-14 text-white relative overflow-hidden">
               <div className="absolute -top-16 -right-16 w-48 h-48 bg-white/10 rounded-full" />
