@@ -102,7 +102,7 @@ export default function DashboardPage() {
 
   return (
     <div style={{ fontFamily: "'Outfit', sans-serif" }} className={dark ? 'dark' : ''}>
-      <div className="min-h-screen bg-[#f5f5f5] dark:bg-[#000000] flex">
+      <div className="h-screen overflow-hidden bg-[#f5f5f5] dark:bg-[#000000] flex">
         <Sidebar
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}
