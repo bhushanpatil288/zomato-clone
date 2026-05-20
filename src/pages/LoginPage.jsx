@@ -59,24 +59,24 @@ export default function LoginPage() {
                 <path d="M12 2C7.03 2 3 6.03 3 11c0 5.25 4.5 9.5 9 11 4.5-1.5 9-5.75 9-11 0-4.97-4.03-9-9-9zm0 2c3.87 0 7 3.13 7 7 0 3.96-3.5 7.5-7 9-3.5-1.5-7-5.04-7-9 0-3.87 3.13-7 7-7zm-1 3v5l4 2.5-.75 1.23L10 13V7h1z" />
               </svg>
             </div>
-            <span className="text-white text-4xl font-bold tracking-tight">zomato</span>
+            <span className="text-white text-4xl font-bold tracking-tight">zomato<span className="text-red-200 text-lg ml-1">partner</span></span>
           </div>
 
           <div className="relative z-10 text-center text-white max-w-sm">
             <h2 className="text-4xl font-bold mb-4 leading-tight">
-              Hungry? <br />
-              <span className="text-red-100">We've got you.</span>
+              Manage your <br />
+              <span className="text-red-100">restaurant effortlessly.</span>
             </h2>
             <p className="text-red-100 text-lg font-light mb-10">
-              Order from thousands of restaurants, delivered fast to your doorstep.
+              Track orders, manage your menu, and grow your business — all in one dashboard.
             </p>
 
             {/* Floating food cards */}
             <div className="space-y-3">
               {[
-                { emoji: '🍕', name: 'Pepperoni Pizza', resto: 'Pizza Palace', time: '28 min', rating: '4.5' },
-                { emoji: '🍔', name: 'Smash Burger', resto: 'Burger Bros', time: '22 min', rating: '4.7' },
-                { emoji: '🍜', name: 'Butter Chicken', resto: 'Spice Garden', time: '35 min', rating: '4.3' },
+                { emoji: '🍽️', name: 'Menu Management', resto: 'Add, edit & manage items', time: 'Real-time', rating: '★' },
+                { emoji: '📦', name: 'Order Tracking', resto: 'Track & update order status', time: 'Live', rating: '★' },
+                { emoji: '📊', name: 'Business Insights', resto: 'Revenue & performance data', time: 'Analytics', rating: '★' },
               ].map((item, i) => (
                 <div
                   key={i}
@@ -130,7 +130,7 @@ export default function LoginPage() {
 
           <div className="w-full max-w-sm">
             <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-1">Welcome back 👋</h1>
-            <p className="text-gray-500 dark:text-gray-400 mb-8 text-sm">Sign in to continue your food journey</p>
+            <p className="text-gray-500 dark:text-gray-400 mb-8 text-sm">Sign in to your partner dashboard</p>
 
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Email */}
@@ -252,10 +252,10 @@ export default function LoginPage() {
             </div>
 
             <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-8">
-              New to Zomato?{' '}
-              <a href="#" className="text-[#E23744] font-semibold hover:underline">
-                Create account
-              </a>
+              New to Zomato Partner?{' '}
+              <span onClick={() => navigate('/signup')} className="text-[#E23744] font-semibold hover:underline cursor-pointer">
+                Register your restaurant
+              </span>
             </p>
           </div>
         </div>

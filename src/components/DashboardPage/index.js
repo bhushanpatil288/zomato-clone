@@ -1,7 +1,8 @@
 import CategoryPills from './CategoryPills';
 import FilterChips from './FilterChips';
-import ReorderSection from './ReorderSection';
-import RestaurantGrid from './RestaurantGrid';
+import FoodGrid from './FoodGrid';
+import FoodFormModal from './FoodFormModal';
+import OrdersPanel from './OrdersPanel';
 import StatsRow from './StatsRow';
 import Header from './Header';
 import HeroBanner from './HeroBanner';
@@ -10,8 +11,9 @@ import Sidebar from './Sidebar';
 export {
   CategoryPills,
   FilterChips,
-  ReorderSection,
-  RestaurantGrid,
+  FoodGrid,
+  FoodFormModal,
+  OrdersPanel,
   StatsRow,
   Header,
   HeroBanner,

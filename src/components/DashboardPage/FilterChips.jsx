@@ -1,4 +1,3 @@
-
 const FilterChips = ({
   filters,
   filtered,
@@ -9,7 +8,7 @@ const FilterChips = ({
     <div>
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-bold text-gray-800 dark:text-white">
-          Available foods
+          Your Menu
           <span className="text-sm font-normal text-gray-400 ml-2">{filtered.length} items</span>
         </h2>
       </div>

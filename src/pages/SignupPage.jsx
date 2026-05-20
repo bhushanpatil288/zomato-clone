@@ -106,21 +106,21 @@ export default function SignupPage() {
               <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-lg">
                 <span className="text-[#E23744] text-xl font-black">Z</span>
               </div>
-              <span className="text-3xl font-bold">zomato</span>
+              <span className="text-3xl font-bold">zomato<span className="text-red-200 text-sm ml-1">partner</span></span>
             </div>
 
-            <h2 className="text-3xl font-bold mb-3 leading-snug">Join 50M+ food lovers</h2>
+            <h2 className="text-3xl font-bold mb-3 leading-snug">Register your restaurant</h2>
             <p className="text-red-100 mb-10 text-sm leading-relaxed">
-              Get access to exclusive deals, track your orders in real-time, and save your favourite restaurants.
+              Get your restaurant online, manage your menu in real-time, and start receiving orders today.
             </p>
 
             {/* Perks */}
             <div className="space-y-4 text-left">
               {[
-                { icon: '⚡', title: 'Lightning fast delivery', desc: 'Average 30 min delivery time' },
-                { icon: '💰', title: 'Exclusive member deals', desc: 'Save up to 60% on every order' },
-                { icon: '🌟', title: 'Zomato Gold perks', desc: 'Free delivery + complimentary dishes' },
-                { icon: '📍', title: 'Live order tracking', desc: 'Know exactly where your food is' },
+                { icon: '🍽️', title: 'Easy menu management', desc: 'Add, edit & organise your dishes' },
+                { icon: '📦', title: 'Real-time order tracking', desc: 'Accept & manage incoming orders' },
+                { icon: '📊', title: 'Business dashboard', desc: 'Revenue, stats & performance data' },
+                { icon: '🚀', title: 'Grow your reach', desc: 'Reach millions of hungry customers' },
               ].map((p) => (
                 <div key={p.title} className="flex items-start gap-3 bg-white/10 rounded-xl p-3 border border-white/20">
                   <div className="text-2xl">{p.icon}</div>
@@ -190,7 +190,7 @@ export default function SignupPage() {
                   {/* profile Image */}
                   <div className='flex flex-col justify-center items-center'>
                     <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                      Profile Image
+                      Restaurant Logo
                     </label>
 
                     <div className="flex items-center gap-4">
@@ -226,10 +226,10 @@ export default function SignupPage() {
 
                   {/* Full name */}
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Full name</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Restaurant name</label>
                     <input
                       type="text" name='name' value={form.name} onChange={(e) => update('name', e.target.value)}
-                      placeholder="John Doe" required
+                      placeholder="e.g. Spice Garden" required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#2e2e2e] bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all"
                     />
                   </div>
@@ -245,10 +245,10 @@ export default function SignupPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Email address</label>
+                    <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1.5">Restaurant address</label>
                     <textarea
                       type="text" name='address' value={form.address} onChange={(e) => update('address', e.target.value)}
-                      placeholder="you@example.com" required
+                      placeholder="Full restaurant address" required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-[#2e2e2e] bg-gray-50 dark:bg-[#1e1e1e] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-600 focus:outline-none focus:ring-2 focus:ring-[#E23744] focus:border-transparent text-sm transition-all"
                     />
                   </div>
@@ -371,7 +371,7 @@ export default function SignupPage() {
 
             <p className="text-center text-sm text-gray-500 dark:text-gray-400 mt-6">
               Already have an account?{' '}
-              <a href="#" className="text-[#E23744] font-semibold hover:underline">Sign in</a>
+              <span onClick={() => navigate('/login')} className="text-[#E23744] font-semibold hover:underline cursor-pointer">Sign in</span>
             </p>
           </div>
         </div>
