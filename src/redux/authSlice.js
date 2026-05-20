@@ -1,5 +1,6 @@
 import { loginUser, getMe, registerUser } from './authThunk';
 import { createSlice } from '@reduxjs/toolkit';
+import { removeToken } from './authStorage';
 
 const initialState = {
   user: null,
@@ -11,8 +12,10 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    logout: () => {
-      //todo
+    logout: (state) => {
+      state.user = null;
+      state.errors = null;
+      removeToken();
     },
   },
   extraReducers: (builder) => {

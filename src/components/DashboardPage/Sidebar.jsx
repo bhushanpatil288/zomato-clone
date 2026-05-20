@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router';
+import { logout } from '../../redux/authSlice';
 
 const navItems = [
   { icon: '🏠', label: 'Home', active: true },
@@ -11,6 +12,7 @@ const navItems = [
 ];
 
 const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { user: userData } = useSelector(state => state.auth);
   const [activeNav, setActiveNav] = useState('Home');
@@ -63,7 +65,12 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
 
         {/* Logout */}
         <div className="p-4 border-t border-gray-100 dark:border-[#2e2e2e]">
-          <button className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e] transition-all">
+          <button
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-[#1e1e1e] transition-all"
+            onClick={() => {
+              dispatch(logout());
+              navigate('/');
+            }}>
             <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
             Sign out
           </button>
