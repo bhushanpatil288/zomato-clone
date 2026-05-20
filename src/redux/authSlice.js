@@ -1,9 +1,9 @@
 import { loginUser, getMe, registerUser } from './authThunk';
 import { createSlice } from '@reduxjs/toolkit';
-import { removeToken } from './authStorage';
+import { removeToken, removeUser, getUser } from './authStorage';
 
 const initialState = {
-  user: null,
+  user: getUser(),
   isLoading: false,
   errors: null,
 };
@@ -16,6 +16,7 @@ const authSlice = createSlice({
       state.user = null;
       state.errors = null;
       removeToken();
+      removeUser();
     },
   },
   extraReducers: (builder) => {

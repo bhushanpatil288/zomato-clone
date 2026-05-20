@@ -9,12 +9,15 @@ import {
 import Layout from './Layout';
 import { useDispatch } from 'react-redux';
 import { getMe } from './redux/authThunk';
+import { getToken } from './redux/authStorage';
 import { useEffect } from 'react';
 
 const App = () => {
   const dispatch = useDispatch();
-  useEffect( () => {
-    dispatch(getMe());
+  useEffect(() => {
+    if (getToken()) {
+      dispatch(getMe());
+    }
   }, [dispatch]);
 
   return (

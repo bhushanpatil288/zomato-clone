@@ -38,7 +38,7 @@ const Sidebar = ({ sidebarOpen, setSidebarOpen }) => {
         <div className="p-4 mx-3 mt-3 rounded-2xl bg-red-50 dark:bg-[#E23744]/10 flex items-center gap-3">
           <div className="w-10 h-10 bg-[#E23744] rounded-full flex items-center justify-center text-white font-bold">R</div>
           <div>
-            <p className="text-sm font-semibold text-gray-800 dark:text-white">{userData.name}</p>
+            <p className="text-sm font-semibold text-gray-800 dark:text-white">{userData?.name ?? 'Guest'}</p>
             <p className="text-xs text-gray-500 dark:text-gray-400">Zomato Admin 🌟</p>
           </div>
         </div>
