@@ -1,6 +1,6 @@
 const Header = ({ dark, toggleTheme, search, setSearch, setSidebarOpen, onAddFood }) => {
   return (
-    <header className="sticky top-0 z-10 bg-white dark:bg-[#000000] border-b border-gray-100 dark:border-[#222222] px-4 lg:px-6 py-4 flex items-center gap-4">
+    <header className="sticky top-0 z-40 bg-white dark:bg-[#000000] border-b border-gray-100 dark:border-[#222222] px-4 lg:px-6 py-4 flex items-center gap-4">
       {/* Hamburger */}
       <button className="lg:hidden text-gray-600 dark:text-gray-300" onClick={() => setSidebarOpen(true)}>
         <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
