@@ -19,3 +19,5 @@ export const login = (formData) => api.post('/auth/login', formData);
 export const register = (formData) => api.post('/auth/register', formData);
 
 export const me = () => api.get('/auth/me');
+
+export const foods = (params) => api.get('/foods', { params });

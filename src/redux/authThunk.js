@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { login, register, me } from '../api/api';
+import { login, register, me, foods } from '../api/api';
 import { setToken, setUser } from './authStorage';
 
 export const loginUser = createAsyncThunk(
@@ -38,6 +38,19 @@ export const getMe = createAsyncThunk(
       return response.data.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response?.data?.message);
+    }
+  },
+
+);
+
+export const getFoods = createAsyncThunk(
+  'foods/getFoods',
+  async (params, thunkAPI) => {
+    try {
+      const response = await foods(params);
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response?.data?.message || 'Fetch foods failed');
     }
   },
 );

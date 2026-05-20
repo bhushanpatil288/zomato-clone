@@ -11,24 +11,25 @@ import {
 } from '../components/DashboardPage/';
 import { useDispatch, useSelector } from 'react-redux';
 import { themeToggle } from '../redux/themeSlice';
+import { getFoods } from '../redux/authThunk';
 
-const restaurants = [
-  { id: 1, name: 'Burger Republic', cuisine: 'Burgers, American', rating: 4.5, time: '25-30', price: 200, offer: '50% OFF up to ₹100', veg: false, emoji: '🍔', tag: 'Bestseller', category: 'burger' },
-  { id: 2, name: 'Spice Garden', cuisine: 'North Indian, Biryani', rating: 4.3, time: '35-40', price: 350, offer: 'FREE delivery', veg: false, emoji: '🍛', tag: 'Popular', category: 'biryani' },
-  { id: 3, name: 'Green Bowl', cuisine: 'Salads, Healthy', rating: 4.7, time: '20-25', price: 180, offer: '30% OFF', veg: true, emoji: '🥗', tag: 'Trending', category: 'healthy' },
-  { id: 4, name: 'Pizza Planet', cuisine: 'Pizza, Italian', rating: 4.4, time: '30-35', price: 300, offer: 'Buy 1 Get 1', veg: false, emoji: '🍕', tag: 'New', category: 'pizza' },
-  { id: 5, name: 'Dosa House', cuisine: 'South Indian, Dosa', rating: 4.6, time: '20-25', price: 150, offer: '20% OFF', veg: true, emoji: '🫓', tag: 'Veg Only', category: 'south-indian' },
-  { id: 6, name: 'Sushi Den', cuisine: 'Japanese, Sushi', rating: 4.8, time: '40-45', price: 600, offer: 'Free roll on ₹500+', veg: false, emoji: '🍣', tag: 'Top Rated', category: 'sushi' },
-  { id: 7, name: 'Biryani Blues', cuisine: 'Biryani, Mughlai', rating: 4.2, time: '30-40', price: 280, offer: 'Flat ₹50 OFF', veg: false, emoji: '🍲', tag: 'Fan Favourite', category: 'biryani' },
-  { id: 8, name: 'The Cake Shop', cuisine: 'Desserts, Bakery', rating: 4.5, time: '15-20', price: 250, offer: 'Free dessert', veg: true, emoji: '🎂', tag: 'Sweet', category: 'desserts' },
-];
 
 export default function DashboardPage() {
   const dark = useSelector(state => state.theme.dark);
+  const foodsState = useSelector(state => state.foods);
+  const foodCount = foodsState.data?.count ?? 0;
+  const foodsLoading = foodsState.isLoading;
+  const foodsError = foodsState.errors;
   const dispatch = useDispatch();
   const [search, setSearch] = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const category = '';
+  const isAvailable = true;
+
+  useEffect(() => {
+    dispatch(getFoods({ category: category || undefined, isAvailable, search: search || undefined }));
+  }, [dispatch, category, isAvailable, search]);
 
   const toggleTheme = () => {
     dispatch(themeToggle());
@@ -51,13 +52,22 @@ export default function DashboardPage() {
     { label: '💰 Under ₹200', key: 'cheap' },
   ];
 
-  const filtered = restaurants.filter((r) => {
-    const matchSearch = r.name.toLowerCase().includes(search.toLowerCase()) || r.cuisine.toLowerCase().includes(search.toLowerCase());
+  const foodsList = foodsState.data?.data || [];
+
+  const filtered = foodsList.filter((f) => {
+    const searchStr = search.toLowerCase();
+    const nameMatch = f.name?.toLowerCase().includes(searchStr);
+    const categoryMatch = f.category?.toLowerCase().includes(searchStr);
+    const descriptionMatch = f.description?.toLowerCase().includes(searchStr);
+    
+    const matchSearch = nameMatch || categoryMatch || descriptionMatch;
+    
     if (!matchSearch) return false;
-    if (activeFilter === 'fast') return parseInt(r.time) <= 30;
-    if (activeFilter === 'top') return r.rating >= 4.5;
-    if (activeFilter === 'veg') return r.veg;
-    if (activeFilter === 'cheap') return r.price < 200;
+    // Assuming API might not have all these fields natively, we do best-effort filtering
+    if (activeFilter === 'fast') return true; // Mock fast delivery
+    if (activeFilter === 'top') return f.rating >= 4.5;
+    if (activeFilter === 'veg') return f.isVeg || f.veg;
+    if (activeFilter === 'cheap') return f.price < 200;
     return true;
   });
 
@@ -84,6 +94,9 @@ export default function DashboardPage() {
           {/* ── Scrollable content ── */}
           <div className="flex-1 overflow-y-auto">
             <div className="max-w-5xl mx-auto px-4 lg:px-6 py-6 space-y-8">
+              <div className="rounded-2xl border border-gray-200 dark:border-[#2e2e2e] bg-white/80 dark:bg-[#161616] p-4 text-sm text-gray-700 dark:text-gray-200 shadow-sm">
+                {foodsLoading ? 'Fetching available foods…' : foodsError ? `Could not load foods: ${foodsError}` : `${foodCount} food items available for your restaurant`}
+              </div>
 
               <HeroBanner />
 

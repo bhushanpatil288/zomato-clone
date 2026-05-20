@@ -9,8 +9,8 @@ const FilterChips = ({
     <div>
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-lg font-bold text-gray-800 dark:text-white">
-          Restaurants near you
-          <span className="text-sm font-normal text-gray-400 ml-2">{filtered.length} places</span>
+          Available foods
+          <span className="text-sm font-normal text-gray-400 ml-2">{filtered.length} items</span>
         </h2>
       </div>
       <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
