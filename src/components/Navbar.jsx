@@ -124,6 +124,7 @@ export default function Navbar() {
                 ? 'bg-[#E23744] text-white hover:bg-[#c8202d] shadow-md shadow-red-200/60 dark:shadow-none'
                 : 'bg-white text-[#E23744] hover:bg-red-50 shadow-lg'
               }`}
+              onClick={() => navigate('/signup')}
             >
               Sign up
             </button>

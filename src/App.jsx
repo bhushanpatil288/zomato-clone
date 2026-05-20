@@ -3,6 +3,7 @@ import {
   DashboardPage,
   HomePage,
   LoginPage,
+  SignupPage,
 } from './pages';
 
 import Layout from './Layout';
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/' element={<Layout />}>
           <Route path='/' element={<HomePage />} />
         </Route>
+        <Route path='/signup' element={<SignupPage />} />
         <Route path='/login' element={<LoginPage />} />
         <Route path='/dashboard' element={<DashboardPage />} />
       </Routes>

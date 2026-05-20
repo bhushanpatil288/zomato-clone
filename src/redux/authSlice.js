@@ -1,4 +1,4 @@
-import { loginUser, getMe } from './authThunk';
+import { loginUser, getMe, registerUser } from './authThunk';
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -26,6 +26,21 @@ const authSlice = createSlice({
         state.isLoading = false;
       })
       .addCase(loginUser.rejected, (state, action) => {
+        state.user = null;
+        state.isLoading = false;
+        state.errors = action.payload;
+      })
+
+      // register
+      .addCase(registerUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(registerUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.errors = null;
+        state.isLoading = false;
+      })
+      .addCase(registerUser.rejected, (state, action) => {
         state.user = null;
         state.isLoading = false;
         state.errors = action.payload;
